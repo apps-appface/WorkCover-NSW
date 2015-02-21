@@ -1,0 +1,83 @@
+
+/* Stylesheet content from css/currencyCertificateRequestMainPage.css in folder common */
+@CHARSET "UTF-8";
+div#rccmpHeader{
+	text-align: center;
+	
+	background-color: #1E60AD;
+	color: #ffffff;
+	font-size: xx-large;
+	font-weight: 100;
+}
+
+img#rccmpBack{
+	max-height: 30px;
+	float: left;
+	line-height: 40px;
+	vertical-align: middle;
+	padding-top: 5px;
+	padding-left: 3px;
+}
+
+ul{
+	padding-left: 0px !important;
+}
+
+#rccmpContainer{
+	text-align: center;	
+}
+
+li#rccmpLi{
+	vertical-align: middle;
+	overflow: hidden;
+	background-color: #eeeeee;
+	margin:1%;
+	border-radius: 10px;
+	margin-right: 0px;
+}
+
+div#rccmpButtons{
+	display: inline-block;
+	text-align: right;
+	float: right;
+	width: 43%;	
+}
+
+div#rccmpButtons button{
+	color: #ffffff;
+	text-shadow:none;
+	margin:1%;
+	
+	border-radius: 10px;
+}
+#rccmpAdd{
+	border-radius: 10px;
+}
+.rccmpViewBut{
+	background-color: gray !important;
+	
+}
+.rccmpPrintBut{
+	background-color: gray !important;
+	
+}
+.rccmpMailBut{
+	background-color: gray !important;
+	
+}
+.rccmpDeleteBut{
+	background-color: red !important;
+}
+li#rccmpLi label{
+	display: inline-block;
+	font-size: medium;
+}
+#rccmpSlNo{
+	text-align: right;
+	padding-top: 18px;
+}
+#rccmpName{
+	/* width: 46%; */
+	padding-left: 5px;
+}
+

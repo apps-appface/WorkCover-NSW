@@ -1,0 +1,840 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>WorkCover</title>
+<meta name="viewport"
+	content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=0">
+
+<link href="jqueryMobile/jquery.mobile-1.4.5.css" rel="stylesheet">
+<link rel="stylesheet" href="css/main.css">
+<link rel="stylesheet" href="css/jquery.mobile.datepicker.css">
+<link rel="stylesheet" href="css/jquery.mobile.inline-png-1.4.1.css">
+<link rel="stylesheet" href="css/jquery.mobile.datepicker.theme.css">
+<link rel="stylesheet" href="css/verification.check.css">
+<link rel="stylesheet" href="css/currencyCertificateRequestPage.css">
+<link rel="stylesheet" href="css/responseVerificationPage.css">
+<link rel="stylesheet" href="css/listPage.css">
+<link rel="stylesheet" href="css/currencyCertificateRequestMainPage.css">
+<script>
+	window.$ = window.jQuery = WLJQ;
+</script>
+<script src="jqueryMobile/jquery.mobile-1.4.5.js"></script>
+</head>
+<body style="display: none;">
+
+	<!--------------------------------------------------------------------->
+
+	<div data-role="page" id="loginPage" style="background-color: #cccccc;">
+
+		<div id="AuthBody">
+
+			<div id="loginHeader" data-role="header" align="center"
+				style="margin-top: 20%; margin-left: 4%; margin-right: 4%;">
+				<img src="images/logo3.png" height="200px" width="600px">
+			</div>
+
+			<div data-role="content"
+				style="margin-top: 30%; border: 1px solid #3F3E40; border-radius: 15px; margin-left: 5%; margin-right: 5%; background-color: gray;">
+
+				<div>
+					<p id="errorMessage"
+						style="color: red; font-size: 25px; text-shadow: none; margin-left: 10px;"></p>
+				</div>
+
+				<div style="width: 70%; height: 25%; float: left; margin: 2%;">
+					<input type="text" id="username" placeholder="Username"
+						style="background-color: #3F3E40; padding: 10px; height: 60px; font-size: 25px; color: white; text-shadow: none; border: 0px;" /><br>
+					<input type="password" id="password" placeholder="Password"
+						style="background-color: #3F3E40; padding: 10px; height: 60px; font-size: 25px; color: white; text-shadow: none; border: 0px;" />
+				</div>
+				<div style="margin-left: 75%; width: 200px; height: 200px;">
+					<img id="loginButton" src="images/login.png"
+						style="width: 200px; height: 200px;">
+				</div>
+
+			</div>
+		</div>
+		<div id="AppBody" style="display: none;">
+			<div id="homeHeader" data-role="header" data-position="fixed">
+				<img src="images/nsw_logo.png"
+					style="margin-left: 15px; width: 80px; height: 75px;"
+					class="ui-btn-left" />
+				<h3>WorkCover NSW</h3>
+				<img src="images/logout.png"
+					style="margin-right: 15px; width: 80px; height: 75px;"
+					class="ui-btn-right"
+					onClick="WL.Client.logout('LoginRealm', {onSuccess:WL.Client.reloadApp})" />
+			</div>
+
+			<div data-role="content" align="center" style="margin-top: 150px;">
+
+				<label id="welcomelbl"
+					style="text-shadow: none; color: #49A64F; font-size: 25px;"></label>
+
+				<div style="width: 550px; padding: 10%;">
+					<div
+						style="float: left; color: green; font-size: 20px; width: 200px; height: 230px;">
+						<img id="adminResponse" src="images/admin.png"
+							style="width: 185px; padding: 10px; height: 185px;" /> <b
+							style="color: #BF4980; text-shadow: none;">Administrative
+							Response</b>
+					</div>
+					<div
+						style="float: right; color: green; font-size: 20px; width: 200px; height: 230px;">
+						<img id="verificationCheck" src="images/verified.png"
+							style="width: 200px; height: 200px;" /><b
+							style="color: #BF4980; text-shadow: none;">Verification
+							Checklist</b>
+					</div>
+				</div>
+
+				<div style="width: 550px; padding: 10%; padding-top: 300px;">
+					<div
+						style="float: left; color: green; font-size: 20px; width: 200px; height: 230px;">
+						<img id="certification" src="images/notice1.png"
+							style=" width: 200px; height: 200px;" /> <b
+							style="color: #BF4980; text-shadow: none;">Issue Notice</b>
+					</div>
+					<div
+						style="float: right; color: green; font-size: 20px; width: 200px; height: 230px;">
+						<img id="notice" src="images/notice.png"
+							style="width: 200px; height: 200px;" /> <b
+							style="color: #BF4980; text-shadow: none;">Public Notice</b>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!--------------------------------------------------------------------->
+
+	<div data-role="page" id="verificationCheckPage"
+		style="background-color: #CCCCCC;">
+
+		<div data-role="header" align="center" id="header"
+			data-position-fixed="true">
+			<img style="margin-left: 15px; width: 80px; height: 75px;"
+				src="images/back.png" id="vBack" class="ui-btn-left">
+			<h3>Verification Check Sheet</h3>
+			<img src="images/logout.png"
+				style="margin-right: 15px; width: 80px; height: 75px;"
+				class="ui-btn-right"
+				onClick="WL.Client.logout('LoginRealm', {onSuccess:WL.Client.reloadApp})" />
+		</div>
+
+		<div data-role="content" id="main">
+
+			<div id="maincontainer">
+
+				<div id="workernameDiv" class="ui-field-contain">
+
+					<label for="workername" id="workerlabel">1.Worker's full
+						name:</label> <input type="text" id="workername" placeholder="Name">
+				</div>
+
+				<div id="dateOfBirthDiv" class="ui-field-contain">
+					<label for="bday" id="dateOfBirthLabel">2.Date of birth:</label> <input
+						type="date" name="bday" id="birthday">
+				</div>
+
+				<div id="workerlicenceDiv" class="ui-field-contain ">
+					<label for="workerlicence">3.Does the worker have a
+						licence?</label>
+					<fieldset id="licence" data-type="horizontal"
+						data-role="controlgroup">
+						<div class="fieldgroup ">
+							<input type="radio" name="workerlicence" id="yes1" value="Yes"><label
+								id="yes" for="yes1">Yes</label>
+						</div>
+						<div class="fieldgroup ">
+							<input type="radio" name="workerlicence" id="no1" value="No"><label
+								for="no1" id="no">No</label>
+						</div>
+					</fieldset>
+				</div>
+
+				<div id="yesDiv" class="ui-field-contain ">
+					<div class="ui-field-contain ">
+						<label for="hrwlicenceno" data-inline="true">4.If yes HRW
+							licence no.</label><input type="text" name="hrwlicenceno"
+							id="hrwlicenceno" data-inline="true">
+					</div>
+					<div class="ui-field-contain ">
+						<label for="issuejurisdiction" data-inline="true"
+							class="ui-field-contain">Issuing Jurisdiction:</label><input
+							type="text" name="issuejurisdiction" id="issuejurisdiction"
+							data-inline="true">
+					</div>
+				</div>
+				<div id="noDiv" class="ui-field-contain ">
+					<label for="enrollintraining" data-inline="true">5.If not,
+						is the worker enrolled in training?</label>
+					<fieldset id="enrollintraining" data-type="horizontal"
+						data-role="controlgroup">
+						<div class="fieldgroup ">
+							<input type="radio" name="enrollintraining" id="yes2" value="Yes"><label
+								for="yes2" id="yes">Yes</label>
+						</div>
+						<div class="fieldgroup ">
+							<input type="radio" name="enrollintraining" id="no2" value="No"><label
+								for="no2" id="no">No</label>
+						</div>
+						<div class="fieldgroup ">
+							<input type="radio" name="enrollintraining" id="na2" value="N/A"><label
+								for="na2" id="notapplicable">N/A</label>
+						</div>
+					</fieldset>
+				</div>
+				<div id="hrwexpirydateDiv" class="ui-field-contain ">
+					<label for="cardExpirydate" data-inline="true">6.HRW card
+						expiry date:</label> <input type="date" id="expirydate"
+						name="cardExpirydate" data-inline="true">
+				</div>
+				<div id="licenceclassesDiv" class="ui-field-contain ">
+					<label for="licenceclasses" data-inline="true">7.Licence
+						classes on card:</label> <input type="text" id="licenceclasses"
+						name="licenceclasses">
+				</div>
+				<div id="interstatecheckdateDiv" class="ui-field-contain ">
+					<label for="interstatecheckdate" data-inline="true">8.Date
+						GLS or interstate check undertaken:</label> <input type="date"
+						id="interstatecheckdate" name="interStateCheck" data-inline="true">
+				</div>
+
+				<div id="licencevalidDiv" class="ui-field-contain ">
+					<label for="validlicence">9.Is the licence valid?</label>
+					<fieldset id="licencevalid" data-type="horizontal"
+						data-role="controlgroup">
+						<div class="fieldgroup ">
+							<input type="radio" name="validlicence" id="yes3" value="Yes"><label
+								for="yes3" id="yes">Yes</label>
+						</div>
+						<div class="fieldgroup ">
+							<input type="radio" name="validlicence" id="no3" value="No"><label
+								for="no3" id="no">No</label>
+						</div>
+					</fieldset>
+				</div>
+				<div id="initiatedRFSDiv" class="ui-field-contain ">
+					<label for="initiatedRFS" data-inline="true">10.If a
+						fraudulent licence is suspected,have you initiated a RFS in
+						consulation with your TC?:</label>
+					<fieldset id="initiatedRFS" data-type="horizontal"
+						data-role="controlgroup">
+						<div class="fieldgroup ">
+							<input type="radio" name="initiatedRFS" id="yes4" value="Yes"><label
+								for="yes4" id="yes">Yes</label>
+						</div>
+						<div class="fieldgroup ">
+							<input type="radio" name="initiatedRFS" id="no4" value="No"><label
+								for="no4" id="no">No</label>
+						</div>
+						<div class="fieldgroup ">
+							<input type="radio" name="initiatedRFS" id="na3" value="N/A"><label
+								for="na3" id="notapplicable">N/A</label>
+						</div>
+					</fieldset>
+				</div>
+				<div id="noticeissuedDiv" class="ui-field-contain ">
+					<label for="noticeissued" data-inline="true">11.Notice(s)
+						issued:</label> <input type="text" id="noticeissued" name="noticeissued">
+				</div>
+				<div id="additionalCommentsDiv" class="ui-field-contain">
+					<label for="additionalComments" data-inline="true">12.Additional
+						comments:</label>
+					<textarea cols="1" rows="4" name="textarea-18"
+						id="textareaComments" placeholder="add comment"></textarea>
+				</div>
+
+				<div>
+					<a data-role="button" href="#" id="save"
+						style="line-height: 50Px; border-radius: 10px; height: 50px; border: 0px; width: 50%; float: right; color: white; background-color: green; text-shadow: none; font-size: 20px;">Submit</a>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!------Start of Administrative Response Verification Check List----->
+
+	<div data-role="page" id="responseVerificationPage"
+		style="background-color: #CCCCCC;">
+
+		<div data-role="header" align="center" id="arvclHeader"
+			data-position-fixed="true">
+			<img style="margin-left: 15px; width: 80px; height: 75px;"
+				src="images/back.png" id="rvpBack" class="ui-btn-left">
+			<h3>Response Verification</h3>
+			<img src="images/logout.png"
+				style="margin-right: 15px; width: 80px; height: 75px;"
+				class="ui-btn-right"
+				onClick="WL.Client.logout('LoginRealm', {onSuccess:WL.Client.reloadApp})" />
+		</div>
+
+		<div data-role="content" style="padding: 15px">
+
+			<div id="rvpContainer">
+
+				<div class="ui-field-contain ">
+					<label for="pcbuWorkplace" class="select">1. Location of
+						PCBU workplace visited</label> <select name="pcbuWorkplace"
+						id="pcbuWorkplace">
+						<option value="" disabled selected>Select One</option>     
+						<option value="option1" id="formLabels">Option 1</option>     
+						<option value="option2" id="formLabels">Option 2</option>     
+						<option value="option3" id="formLabels">Option 3</option>     
+						<option value="option4" id="formLabels">Option4</option>
+					</select>
+				</div>
+
+				<div class="ui-field-contain ">
+					<label for="pcbuSize" class="select">2. Size of PCBU</label> <select
+						name="pcbuSize" id="pcbuSize">
+						<option value="" disabled selected>Select One</option>     
+						<option value="option1" id="formLabels">Option 1</option>     
+						<option value="option2" id="formLabels">Option 2</option>     
+						<option value="option3" id="formLabels">Option 3</option>     
+						<option value="option4" id="formLabels">Option4</option>
+					</select>
+				</div>
+
+				<div class="ui-field-contain ">
+					<label for="pcbuARALetter" data-inline="true">3. Did the
+						PCBU receive the ARA letter?</label>
+					<fieldset id="pcbuARALetter" data-role="controlgroup"
+						data-type="horizontal">
+						<div class="fieldgroup ">
+							<input type="radio" name="pcbuARALetter" id="pcbuARALetterYes"
+								value="1"><label for="pcbuARALetterYes" id="formLabels">Yes</label>
+						</div>
+						<div class="fieldgroup">
+							<input type="radio" name="pcbuARALetter" id="pcbuARALetterNo"
+								value="0"><label for="pcbuARALetterNo" id="formLabels">No</label>
+						</div>
+
+					</fieldset>
+				</div>
+
+				<div class="ui-field-contain ">
+					<label for="araIssuesResolved">4. Were the issues raised in
+						the ARA letter resolved at the time of the verification List?</label>
+					<fieldset id="araIssuesResolved" data-role="controlgroup"
+						data-type="horizontal">
+						<div class="fieldgroup ">
+							<input type="radio" name="araIssuesResolved"
+								id="araIssuesResolvedYes" value="1"><label
+								for="araIssuesResolvedYes" id="formLabels">Yes</label>
+						</div>
+						<div class="fieldgroup">
+							<input type="radio" name="araIssuesResolved"
+								id="araIssuesResolvedNo" value="0"><label
+								for="araIssuesResolvedNo" id="formLabels">No</label>
+						</div>
+
+					</fieldset>
+				</div>
+
+				<div id="actionARALetterDiv" class="ui-field-contain"
+					style="display: none;">
+					<label for="actionARALetter" class="select "
+						id="actionARALetterLabel">4.1 If not, detail the action
+						taken to resolve outstanding issues identified in the ARA letter</label> <select
+						name="actionARALetter" id="actionARALetter">
+						<option value="" disabled selected>Select One</option>     
+						<option value="option1" id="formLabels">Option 1</option>     
+						<option value="option2" id="formLabels">Option 2</option>     
+						<option value="option3" id="formLabels">Option 3</option>     
+						<option value="option4" id="formLabels">Option4</option>
+					</select>
+				</div>
+
+				<div class="ui-field-contain ">
+					<label for="pcbuConsultationMechanism">5. Did the PCBU have
+						a consultation mechanism in place at the time of the visit?</label>
+					<fieldset id="pcbuConsultationMechanism" data-role="controlgroup"
+						data-type="horizontal">
+
+
+						<div class="fieldgroup">
+							<input type="radio" name="pcbuConsultationMechanism"
+								id="pcbuConsultationMechanismYes" value="Yes"><label
+								for="pcbuConsultationMechanismYes" id="formLabels">Yes</label>
+						</div>
+						<div class="fieldgroup">
+							<input type="radio" name="pcbuConsultationMechanism"
+								id="pcbuConsultationMechanismNo" value="No"><label
+								for="pcbuConsultationMechanismNo" id="formLabels">No</label>
+						</div>
+						<div class="fieldgroup">
+							<input type="radio" name="pcbuConsultationMechanism"
+								id="pcbuConsultationMechanismNA" value="NA"><label
+								for="pcbuConsultationMechanismNA" id="formLabels">N/A</label>
+						</div>
+
+					</fieldset>
+				</div>
+
+				<div class="ui-field-contain ">
+					<label for="pcbuEngageWorkers">6. Did the PCBU engage with
+						their workers in the resolution of the issues raised in the ARA
+						letter?</label>
+					<fieldset id="pcbuEngageWorkers" data-role="controlgroup"
+						data-type="horizontal">
+						<div class="fieldgroup">
+							<input type="radio" name="pcbuEngageWorkers"
+								id="pcbuEngageWorkersYes" value="Yes"><label
+								for="pcbuEngageWorkersYes" id="formLabels">Yes</label>
+						</div>
+						<div class="fieldgroup">
+							<input type="radio" name="pcbuEngageWorkers"
+								id="pcbuEngageWorkersNo" value="No"><label
+								for="pcbuEngageWorkersNo" id="formLabels">No</label>
+						</div>
+						<div class="fieldgroup">
+							<input type="radio" name="pcbuEngageWorkers"
+								id="pcbuEngageWorkersNA" value="NA"><label
+								for="pcbuEngageWorkersNA" id="formLabels">N/A</label>
+						</div>
+
+					</fieldset>
+				</div>
+
+				<div class="ui-field-contain ">
+					<label for="additionalIssuesIdentified">7. Were there any
+						additional WHS/WC/RTW issues identified during the verification
+						visit</label>
+					<fieldset id="additionalIssuesIdentified" data-role="controlgroup"
+						data-type="horizontal">
+						<div class="fieldgroup">
+							<input type="radio" name="additionalIssuesIdentified"
+								id="additionalIssuesIdentifiedYes" value="1"><label
+								for="additionalIssuesIdentifiedYes" id="formLabels">Yes</label>
+						</div>
+						<div class="fieldgroup">
+							<input type="radio" name="additionalIssuesIdentified"
+								id="additionalIssuesIdentifiedNo" value="0"><label
+								for="additionalIssuesIdentifiedNo" id="formLabels">No</label>
+						</div>
+					</fieldset>
+				</div>
+
+				<div id="ifAdditionalIssues" style="display: none;">
+					<div class="ui-field-contain ">
+						<label for="issueDetails">7.1 If yes, detail the types of
+							issues identified</label>
+						<textarea cols="40" rows="4" name="issueDetails" id="issueDetails"></textarea>
+
+					</div>
+
+					<div class="ui-field-contain ">
+						<label for="additionalIssueAction" class="select">7.2 If
+							yes, detail the action taken in relation to additional issues
+							identified during the verification visit</label> <select
+							name="additionalIssueAction" id="additionalIssueAction">
+							<option value="" disabled selected>Select One</option>     
+							<option value="option1" id="formLabels">Option 1</option>     
+							<option value="option2" id="formLabels">Option 2</option>     
+							<option value="option3" id="formLabels">Option 3</option>     
+							<option value="option4" id="formLabels">Option4</option>
+						</select>
+					</div>
+				</div>
+
+				<div class="ui-field-contain ">
+					<label for="workCoverProducts" class="select">8. Detail any
+						WorkCover products or services that the PCBU was referred to:</label> <select
+						name="workCoverProducts" id="workCoverProducts">
+						<option value="" disabled selected style="color: #D4E6FC">Select
+							One</option>     
+						<option value="option1" id="formLabels">Option 1</option>     
+						<option value="option2" id="formLabels">Option 2</option>     
+						<option value="option3" id="formLabels">Option 3</option>     
+						<option value="option4" id="formLabels">Option4</option>
+					</select>
+				</div>
+
+				<div class="ui-field-contain ">
+					<label for="araComments">9. General comments about the ARA
+						process. If none answer NA</label>
+					<textarea cols="40" rows="6" name="araComments" id="araComments"></textarea>
+				</div>
+
+				<div>
+					<a data-role="button" href="#" id="rvpSubmit"
+						style="line-height: 50Px; border-radius: 10px; height: 50px; border: 0px; width: 50%; float: right; color: white; background-color: green; text-shadow: none; font-size: 20px;">Submit</a>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!----------------Start of Request for Certification Page---------------->
+
+	<div data-role="page" id="currencyCertificateRequestPage">
+
+		<div data-role="header" align="center" id="rccHeader"
+			data-position-fixed="true">
+			<img style="margin-left: 15px; width: 80px; height: 75px;"
+				src="images/back.png" id="rccBack" class="ui-btn-left">
+			<h3>Create Notice</h3>
+			<img src="images/logout.png"
+				style="margin-right: 15px; width: 80px; height: 75px;"
+				class="ui-btn-right"
+				onClick="WL.Client.logout('LoginRealm', {onSuccess:WL.Client.reloadApp})" />
+		</div>
+
+		<div data-role="content" style="padding: 15px">
+
+			<div id="rccContainer">
+				<div class="ui-field-contain">
+					<label for="rccNoticeNumberField">Notice number</label> <input
+						disabled="disabled" type="text" name="rccNoticeNumber"
+						id="rccNoticeNumberField" style="color: black; font-size: 14px">
+				</div>
+
+				<div class="subHead">
+					<h4>Notice issued to</h4>
+				</div>
+				<div class="ui-field-contain">
+					<label for="rccABNField">ABN (for Australian business only)</label>
+					<select name="rccABN" id="rccABNField">
+						<option value="none" id="formLabels">none</option>     
+						<option value="13 000 636 019" id="formLabels">13 000 636
+							019</option>     
+						<option value="36 866 850 610" id="formLabels">36 866 850
+							610</option>     
+						<option value="53 004 085 616" id="formLabels">53 004 085
+							616</option>     
+						<option value="80 957 726 462" id="formLabels">80 957 726
+							462</option>
+						<option value="94 686 693 834" id="formLabels">94 686 693
+							834</option>
+					</select>
+					<!-- <input type="text" name="rccABN" id="rccABNField" value=""> -->
+				</div>
+
+				<div class="ui-field-contain">
+					<label for="rccRegisteredNameField">Registered name</label> <input
+						type="text" name="rccRegisteredName" id="rccRegisteredNameField"
+						value="">
+				</div>
+
+				<div class="ui-field-contain">
+					<label for="rccBusinessNameField">Registered business
+						(trading) name (If apllicable)</label> <input type="text"
+						name="rccBusinessName" id="rccBusinessNameField" value="">
+				</div>
+
+
+				<div class="subHead">
+					<h4>Address</h4>
+				</div>
+
+				<label>Address must not be a PO Box. Corporations to provide
+					their registered business address. Individuals to provide their
+					home address.</label>
+
+				<div class="ui-field-contain">
+					<label for="rccBuildingNameField">Building name (or c/o and
+						details)</label> <input type="text" name="rccBuildingName"
+						id="rccBuildingNameField" value="">
+				</div>
+
+				<div class="ui-field-contain">
+					<label for="rccNumberField">Number (Unit number, street
+						number, property number, lot or DP number if applicable)</label> <input
+						type="text" name="rccNumber" id="rccNumberField" value="">
+				</div>
+
+				<div class="ui-field-contain">
+					<label for="rccStreetNameField">Street name</label> <input
+						type="text" name="rccStreetName" id="rccStreetNameField" value="">
+				</div>
+
+				<div class="ui-field-contain">
+					<label for="rccSuburbField">Suburb</label> <input type="text"
+						name="rccSuburb" id="rccSuburbField" value="">
+				</div>
+
+				<div class="ui-field-contain" style="display: none" id="stateText">
+					<label for="rccStateText">State</label> <input type="text"
+						name="rccStateText" id="rccStateText" value="">
+				</div>
+
+				<div class="ui-field-contain " id="stateSelect">
+					<label for="rccStateField" class="select">State</label> <select
+						name="rccState" id="rccStateField">
+						<option value="New South Wales" id="formLabels">New South
+							Wales</option>     
+						<option value="Queensland" id="formLabels">Queensland</option>
+						    
+						<option value="South Australia" id="formLabels">South
+							Australia</option>     
+						<option value="Western Australia" id="formLabels">Western
+							Australia</option>
+						<option value="Victoria" id="formLabels">Victoria</option>
+					</select>
+				</div>
+
+
+				<div class="ui-field-contain">
+					<label for="rccPostCodeField">PostCode</label> <input type="number"
+						name="rccPostCode" id="rccPostCodeField" value="">
+				</div>
+
+				<div class="subHead">
+					<h4>Notice</h4>
+				</div>
+
+				<label style="display: inline-block;">I,</label><input type="text"
+					disabled="disabled" style="color: black;" name="rccOfficerName"
+					id="rccOfficerNameField"> <label>, being an officer
+					of the WorkCover Authority authorised by the Authority to make such
+					a request in accordance with section 163A(3)(a) of the Workers
+					Compensation Act 1987 (the Act) hereby request you to provide,
+					pursuant to section 163A(2) of the Act, a certificate of currency
+					issued by a licensed NSW insurer under a policy of workers
+					compensation insurance that certifies that you are insured under a
+					NSW policy at this time.<br>
+				</label> <label>The certificate of currency must be produced for
+					inspection <em>within five days</em> of the date of this request to
+					me at
+				</label>
+
+				<textarea cols="40" rows="6" name="rccOfficerAddress"
+					id="rccOfficerAddressField" disabled="disabled"
+					style="color: black;"></textarea>
+				<br> <br>
+
+				<div id="rccSignatureContainer">
+					<div id="rccSignatureCanvasContainer">
+						<canvas id="rccSignatureCanvas" width="400" height="200"></canvas>
+					</div>
+					<label>Signature</label> <label>(Authorised officer of the
+						WorkCover Authority)</label>
+					<button class="ui-btn ui-btn-inline" id="rccSignatureClear">Clear</button>
+				</div>
+				<label id="rccDateField"></label>
+				<div>
+					<a data-role="button" href="#" id="submitNewNotice"
+						style="line-height: 50Px; border-radius: 10px; height: 50px; border: 0px; width: 50%; float: right; color: white; background-color: green; text-shadow: none; font-size: 20px;">Submit</a>
+				</div>
+			</div>
+
+		</div>
+	</div>
+
+	<!-----------------Show List Page----------------->
+
+	<div data-role="page" id="showListPage"
+		style="background-color: #cccccc;">
+
+		<div data-role="header" align="center" id="listHeader"
+			data-position-fixed="true">
+			<img style="margin-left: 15px; width: 80px; height: 75px;"
+				src="images/back.png" id="listBack" class="ui-btn-left">
+			<h3>Verification Checklist</h3>
+			<img src="images/logout.png"
+				style="margin-right: 15px; width: 80px; height: 75px;"
+				class="ui-btn-right"
+				onClick="WL.Client.logout('LoginRealm', {onSuccess:WL.Client.reloadApp})" />
+		</div>
+
+		<div data-role="content">
+
+			<ul data-role="listview" id="showlist" data-scroll="true"
+				style="margin: 2%;">
+			</ul>
+
+			<div>
+				<a data-role="button" href="#" id="addNew"
+					style="line-height: 50Px; border-radius: 10px; height: 50px; border: 0px; width: 50%; float: right; color: white; background-color: green; text-shadow: none; font-size: 20px;">Add New</a>
+			</div>
+
+		</div>
+	</div>
+
+	<!-----------------Preview Page----------------->
+
+	<div data-role="page" id="certificatePreviewPage">
+
+		<div data-role="header" id="previewHeader">
+			<img
+				style="margin-right: 15px; float: right; width: 80px; height: 80px;"
+				src="images/ok.png" id="okBtn">
+			<h3>Notice Preview</h3>
+		</div>
+
+		<div data-role="content" style="padding: 2%;">
+
+			<div id="img" align="center">
+				<img src="images/logo3.png" style="height: 150px; width: 450px;" />
+			</div>
+
+			<div id="testrccNoticeNumber">
+				<label for="testrccNoticeNumberField" style="display: inline-block;">Notice
+					number : </label> <label id="testrccNoticeNumberField"
+					style="display: inline-block;"> </label>
+
+			</div>
+
+			<div class="subHead">
+				<h4>Notice issued to</h4>
+			</div>
+
+			<div id="testrccRegisteredName">
+				<label for="testrccRegisteredNameField"
+					style="display: inline-block;">Registered name : </label> <label
+					id="testrccRegisteredNameField" style="display: inline-block;">
+				</label>
+			</div>
+
+			<div id="testrccBusinessName">
+				<label for="testrccBusinessNameField" style="display: inline-block;">Registered
+					business (trading) name : </label> <label id="testrccBusinessNameField"
+					style="display: inline-block;"> </label>
+
+			</div>
+
+			<div id="testrccABN">
+				<label for="testrccABNField" style="display: inline-block;">ABN
+					(for Australian business only) : </label> <label id="testrccABNField"
+					style="display: inline-block;"> </label>
+			</div>
+
+			<div class="subHead">
+				<h4>Address</h4>
+			</div>
+
+			<div id="testrccBuildingName">
+				<label for="testrccBuildingNameField" style="display: inline-block;">Building
+					name : </label> <label id="testrccBuildingNameField"
+					style="display: inline-block;"> </label>
+			</div>
+
+			<div id="testrccNumber">
+				<label for="testrccNumberField" style="display: inline-block;">Building
+					Number : </label> <label id="testrccNumberField"
+					style="display: inline-block;"> </label>
+			</div>
+
+			<div id="testrccStreetName">
+				<label for="testrccStreetNameField" style="display: inline-block;">Street
+					Name : </label> <label id="testrccStreetNameField"
+					style="display: inline-block;"> </label>
+			</div>
+
+			<div id="testrccSuburb">
+				<label for="testrccSuburbField" style="display: inline-block;">Suburb
+					: </label> <label id="testrccSuburbField" style="display: inline-block;">
+				</label>
+			</div>
+
+			<div id="testrccState">
+				<label for="testrccStateField" style="display: inline-block;">State
+					: </label> <label id="testrccStateField" style="display: inline-block;">
+				</label>
+			</div>
+
+
+			<div id="testrccPostCode">
+				<label for="testrccPostCodeField" style="display: inline-block;">PostCode
+					: </label> <label id="testrccPostCodeField" style="display: inline-block;">
+				</label>
+			</div>
+
+			<div id="testSubhead" class="subHead">
+				<h4>Notice</h4>
+			</div>
+
+			<!-- <div id="notice"> -->
+			<div id="i">
+				<label style="display: inline-block;">I, </label>
+			</div>
+			<div id="officernameid">
+				<label id="testrccOfficerNameField" style="display: inline-block;"
+					for="testrccOfficerNameField"> </label>
+			</div>
+			<div id="noticetext">
+				<label>, being an officer of the WorkCover Authority
+					authorised by the Authority to make such a request in accordance
+					with section 163A(3)(a) of the Workers Compensation Act 1987 (the
+					Act) hereby request you to provide, pursuant to section 163A(2) of
+					the Act, a certificate of currency issued by a licensed NSW insurer
+					under a policy of workers compensation insurance that certifies
+					that you are insured under a NSW policy at this time.<br>
+				</label> <label>The certificate of currency must be produced for
+					inspection <em>within five days</em> of the date of this request to
+					me at
+				</label>
+			</div>
+			<!-- </div> -->
+
+			<div id="rccOfficerAddress" data-inline="true">
+				<label data-inline="true" id="testrccOfficerAddressField"></label>
+			</div>
+
+			<div id="rccSignatureContainer" align="left" style="margin: 2%;">
+				<div id="rccSignatureCanvasContainer"
+					style="width: 200px; height: 150px;">
+					<img src="" id="testrccOfficerSignature"
+						style="height: 140px; width: 190px;">
+				</div>
+				<label>Signature</label> <label>(Authorised officer of the
+					WorkCover Authority)</label>
+
+			</div>
+			<div id="dateHolder" align="left">
+				<label id="testrccDateField"> </label>
+			</div>
+
+		</div>
+	</div>
+
+	<!------------------------------------ Notice List Page ---------------------------------------->
+
+	<div data-role="page" id="noticeListPage">
+
+		<div data-role="header" align="center" id="noticeListHeader"
+			data-position-fixed="true">
+			<img style="margin-left: 15px; width: 80px; height: 75px;"
+				src="images/back.png" id="nListBack" class="ui-btn-left">
+			<h3>Notice List</h3>
+			<img src="images/logout.png"
+				style="margin-right: 15px; width: 80px; height: 75px;"
+				class="ui-btn-right"
+				onClick="WL.Client.logout('LoginRealm', {onSuccess:WL.Client.reloadApp})" />
+		</div>
+
+		<div data-role="content" style="padding: 2%;">
+			<div id="rccmpContainer">
+				<label id="rccmpSubHead"
+					style="font-size: 25px; background: #3e3e3e; color: white; margin-top: 3%; margin-bottom: 2%; text-shadow: none; border: 0px; padding: 2%; width: 70%;"></label>
+				<ul id="rccmpList"></ul>
+
+				<div>
+					<a data-role="button" href="#" id="rccmpAdd"
+						style="line-height: 50Px; border-radius: 10px; height: 50px; border: 0px; width: 50%; float: right; color: white; background-color: green; text-shadow: none; font-size: 20px;">Create
+						New Notice</a>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<script src="js/initOptions.js"></script>
+	<script src="js/authentication.js"></script>
+	<script src="js/main.js"></script>
+	<script src="js/messages.js"></script>
+	<script src="js/verificationListPage.js"></script>
+	<script src="js/jquery.mobile.datepicker.js"></script>
+	<script src="js/responseVerificationPage.js"></script>
+	<script src="js/currencyCertificateRequestPage.js"></script>
+	<script src="js/modernizr.custom.34982.js"></script>
+	<script src="js/signatureCapture.js"></script>
+	<script src="js/jspdf.js"></script>
+	<script src="js/jspdf.min.js"></script>
+	<script src="js/nswImage.js"></script>
+	<script src="js/previewNoticeCertificate.js"></script>
+	<script src="js/noticeListPage.js"></script>
+	<script src="js/mainPage.js"></script>
+</body>
+</html>
