@@ -23,49 +23,49 @@ function getTitle(result) {
 			if (main_user == "Inspector") {
 				$('#showlist')
 						.append(
-								' <li data-inline=\"true\">'
+								' <li data-inline=\"true\" id=\"vlpList\">'
 										+ '<label id=\"serialnumber\">'
 										+ (j)
 										+ '.'
 										+ '</label>'
 										+ ' '
-										+ '<label id=\"name\" style=\"color:green;\">'
+										+ '<label id=\"name\" style=\"color:#3e3e3e; text-shadow:none;\">'
 
 										+ res.resultSet[i].name
 										+ '</label>'
-										+ '<div id=\"buttons\" data-inline=\"true\"><img src=\"images/edit.png\" style=\"width:25px;height:25px;\" id=\"'
+										+ '<div id=\"vlpButtons\" data-inline=\"true\"><button  id=\"'
 										+ res.resultSet[i].worker_id
-										+ '\" class=\"edit\" onclick=\"false\"/>'
-										+ '<img src=\"images/delete.png\" style=\"width:25px;height:25px;\" id=\"'
+										+ '\" class=\"ui-btn ui-btn-inline edit\" onclick=\"false\">Edit</button>'
+										+ '<button  id=\"'
 										+ res.resultSet[i].worker_id
-										+ '\" class=\"delete\" onclick=\"false\"/>'
-										+ '<img src=\"images/pdf.png\" style=\"width:25px;height:25px;\" id=\"'
+										+ '\" class=\"ui-btn ui-btn-inline delete\" onclick=\"false\">Delete</button>'
+										+ '<button  id=\"'
 										+ res.resultSet[i].worker_id
-										+ '\" class=\"pdf\" onclick=\"false\"/></div>'
+										+ '\" class=\"ui-btn ui-btn-inline pdf\" onclick=\"false\">PDF</button></div>'
 										+ '</li>');
 				j++;
 			} else {
 				$('#showlist')
 						.append(
-								' <li data-inline=\"true\">'
+								' <li data-inline=\"true\" id=\"vlpList\">'
 										+ '<label id=\"serialnumber\">'
 										+ (j)
 										+ '.'
 										+ '</label>'
 										+ ' '
-										+ '<label id=\"name\" style=\"color:green;\">'
+										+ '<label id=\"name\" style=\"color:#3e3e3e; text-shadow:none;\">'
 
 										+ res.resultSet[i].name
 										+ '</label>'
-										+ '<div id=\"buttons\" data-inline=\"true\"><img src=\"images/edit.png\" style=\"width:25px;height:25px;\" id=\"'
+										+ '<div id=\"vlpButtons\" data-inline=\"true\"><button id=\"'
 										+ res.resultSet[i].worker_id
-										+ '\" class=\"edit\" onclick=\"workerEdit(this.id)\"/>'
-										+ '<img src=\"images/delete.png\" style=\"width:25px;height:25px;\" id=\"'
+										+ '\" class=\"ui-btn ui-btn-inline edit\" onclick=\"workerEdit(this.id)\">Edit</button>'
+										+ '<button id=\"'
 										+ res.resultSet[i].worker_id
-										+ '\" class=\"delete\" onclick=\"workerDelete(this.id)\"/>'
-										+ '<img src=\"images/pdf.png\" style=\"width:25px;height:25px;\" id=\"'
+										+ '\" class=\"ui-btn ui-btn-inline delete\" onclick=\"workerDelete(this.id)\">Delete</button>'
+										+ '<button id=\"'
 										+ res.resultSet[i].worker_id
-										+ '\" class=\"pdf\" onclick=\"workerPDF(this.id)\"/></div>'
+										+ '\" class=\"ui-btn ui-btn-inline pdf\" onclick=\"workerPDF(this.id)\">PDF</button></div>'
 										+ '</li>');
 				j++;
 			}
@@ -79,25 +79,25 @@ function getTitle(result) {
 
 			$('#showlist')
 					.append(
-							' <li data-inline=\"true\">'
+							' <li data-inline=\"true\" id=\"vlpList\">'
 									+ '<label id=\"serialnumber\">'
 									+ (j)
 									+ '.'
 									+ '</label>'
 									+ ' '
-									+ '<label id=\"name\" style=\"color:red;\">'
+									+ '<label id=\"name\" style=\"color:#3e3e3e; text-shadow:none;\">'
 
 									+ res.resultSet[i].name
 									+ '</label>'
-									+ '<div id=\"buttons\" data-inline=\"true\"><img src=\"images/edit.png\" style=\"width:25px;height:25px;\" id=\"'
+									+ '<div id=\"vlpButtons\" data-inline=\"true\"><button id=\"'
 									+ res.resultSet[i].worker_id
-									+ '\" class=\"edit\" onclick=\"workerEdit(this.id)\" />'
-									+ '<img src=\"images/delete.png\" style=\"width:25px;height:25px;\" id=\"'
+									+ '\" class=\"edit\" onclick=\"workerEdit(this.id)\" >Edit</button>'
+									+ '<button id=\"'
 									+ res.resultSet[i].worker_id
-									+ '\" class=\"delete\" onclick=\"workerDelete(this.id)\" />'
-									+ '<img src=\"images/pdf.png\" style=\"width:25px;height:25px;\" id=\"'
+									+ '\" class=\"delete\" onclick=\"workerDelete(this.id)\" >Delete</button>'
+									+ '<button id=\"'
 									+ res.resultSet[i].worker_id
-									+ '\" class=\"pdf\" onclick=\"workerPDF(this.id)\"/></div>'
+									+ '\" class=\"pdf\" onclick=\"workerPDF(this.id)\">PDF</button></div>'
 									+ '</li>');
 			j++;
 		}

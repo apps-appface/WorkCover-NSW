@@ -27,22 +27,33 @@ function submitCurrencyCertificateRequest(rccNoticeNumber, rccRegisteredName,
 		parameters : [ rccNoticeNumber, rccRegisteredName, rccBusinessName,
 				rccABN, rccBuildingName, rccNumber, rccStreetName, rccSuburb,
 				rccState, rccPostCode, rccOfficerName, rccOfficerAddress,
-				rccDate, signature,currentUserRole ]
+				rccDate, signature, currentUserRole ]
 	});
 }
 
-var procedure1Statement = WL.Server.createSQLStatement("select * from CURRENCY_CERTIFICATE_REQUEST where notice_id=? ;");
+var procedure1Statement = WL.Server
+		.createSQLStatement("select * from CURRENCY_CERTIFICATE_REQUEST where notice_id=? ;");
 function retrieveNoticeData(noticeId) {
 	return WL.Server.invokeSQLStatement({
 		preparedStatement : procedure1Statement,
-		parameters : [noticeId]
+		parameters : [ noticeId ]
 	});
 }
 
-var retrieveDataStatement = WL.Server.createSQLStatement("select * from CURRENCY_CERTIFICATE_REQUEST;");
+var retrieveDataStatement = WL.Server
+		.createSQLStatement("select * from CURRENCY_CERTIFICATE_REQUEST;");
 function retrieveData() {
 	return WL.Server.invokeSQLStatement({
 		preparedStatement : retrieveDataStatement,
 		parameters : []
+	});
+}
+
+var deleteNoticeStatement = WL.Server
+		.createSQLStatement("delete from CURRENCY_CERTIFICATE_REQUEST where notice_id=?;");
+function deleteNotice(noticeId) {
+	return WL.Server.invokeSQLStatement({
+		preparedStatement : deleteNoticeStatement,
+		parameters : [ noticeId ]
 	});
 }

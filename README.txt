@@ -29,7 +29,7 @@ The supported versions of Eclipse are
  ------------
  
  -install mysql in your system.
- -Create WorkCoverNSW Database and import WORKCOVER_DATABASELATEST.sql file to that database.
+ -Create WorkCoverNSW Database and import WORKCOVER_DATABASE_Latest.sql file to that database.
  
 3.Import project in your workspace
  

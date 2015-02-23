@@ -47,7 +47,7 @@
         <div data-role="page" id="loginPage" style="background-color: #cccccc;">
             <div id="AuthBody">
                 <div align="center" data-role="header" id="loginHeader" style="margin-top: 20%; margin-left: 4%; margin-right: 4%;">
-                    <img height="200px" src="images/logo3.png" width="600px">
+                    <img height="200px" src="images/others/logo3.png" width="600px">
 			</div>
                 <div data-role="content" style="margin-top: 30%; border: 1px solid #3F3E40; border-radius: 15px; margin-left: 5%; margin-right: 5%; background-color: gray;">
                     <div>
@@ -59,45 +59,53 @@
                         <input id="password" placeholder="Password" style="background-color: #3F3E40; padding: 10px; height: 60px; font-size: 25px; color: white; text-shadow: none; border: 0px;" type="password">
                     </div>
                     <div style="margin-left: 75%; width: 200px; height: 200px;">
-                        <img id="loginButton" src="images/login.png" style="width: 200px; height: 200px;">
+                        <img id="loginButton" src="images/others/login.png" style="width: 200px; height: 200px;">
 				</div>
                 </div>
             </div>
             <div id="AppBody" style="display: none;">
-                <div data-position="fixed" data-role="header" id="homeHeader">
-                    <img class="ui-btn-left" src="images/nsw_logo.png" style="margin-left: 15px; width: 80px; height: 75px;">
+                <div data-position="fixed !important" data-role="header" id="homeHeader">
+                    <img class="ui-btn-left" src="images/others/nsw_logo.png" style="margin-left: 15px; width: 80px; height: 75px;">
 				<h3>WorkCover NSW</h3>
-                    <img class="ui-btn-right" onClick="WL.Client.logout('LoginRealm', {onSuccess:WL.Client.reloadApp})" src="images/logout.png" style="margin-right: 15px; width: 80px; height: 75px;">
+                    <img class="ui-btn-right logOutButton" onClick="WL.Client.logout('LoginRealm', {onSuccess:WL.Client.reloadApp})" src="images/others/logout.png" style="margin-right: 15px; width: 80px; height: 75px;">
 			</div>
-                <div align="center" data-role="content" style="margin-top: 150px;">
-                    <label id="welcomelbl" style="text-shadow: none; color: #49A64F; font-size: 25px;"></label>
-                    <div style="width: 550px; padding: 10%;">
+                <div align="center" data-role="content" style="margin-top: 5%;">
+                    <label id="welcomelbl" style="text-shadow: none; color: #BF4980; font-size: 25px;">Welcome
+					Inspector Max Alexzeder</label>
+                    <div style="width: 550px; padding-top: 7%; padding-left: 10%; padding-right: 10%; padding-bottom: 6%;">
                         <div style="float: left; color: green; font-size: 20px; width: 200px; height: 230px;">
-                            <img id="adminResponse" src="images/admin.png" style="width: 185px; padding: 10px; height: 185px;"> <b style="color: #BF4980; text-shadow: none;">Administrative
-							Response</b>
+                            <img id="myWSMS" src="images/logo/mywsms.png" style="width: 200px; height: 200px;"> <b style="color: #3e3e3e; text-shadow: none;">My WSMS</b>
                         </div>
                         <div style="float: right; color: green; font-size: 20px; width: 200px; height: 230px;">
-                            <img id="verificationCheck" src="images/verified.png" style="width: 200px; height: 200px;"><b style="color: #BF4980; text-shadow: none;">Verification
-							Checklist</b>
+                            <img id="cMgmt" src="images/logo/cmanagement.png" style="width: 200px; height: 200px;"><b style="color: #3e3e3e; text-shadow: none;">Customer
+							Management</b>
                         </div>
                     </div>
-                    <div style="width: 550px; padding: 10%; padding-top: 300px;">
+                    <div style="width: 550px; padding: 6%; padding-top: 300px;">
                         <div style="float: left; color: green; font-size: 20px; width: 200px; height: 230px;">
-                            <img id="certification" src="images/notice1.png" style=" width: 200px; height: 200px;"> <b style="color: #BF4980; text-shadow: none;">Issue Notice</b>
+                            <img id="nMgmt" src="images/logo/notice.png" style="width: 200px; height: 200px;"> <b style="color: #3e3e3e; text-shadow: none;">Notice Management</b>
                         </div>
                         <div style="float: right; color: green; font-size: 20px; width: 200px; height: 230px;">
-                            <img id="notice" src="images/notice.png" style="width: 200px; height: 200px;"> <b style="color: #BF4980; text-shadow: none;">Public Notice</b>
+                            <img id="reports" src="images/logo/reports.png" style="width: 200px; height: 200px;"> <b style="color: #3e3e3e; text-shadow: none;">Reports</b>
+                        </div>
+                    </div>
+                    <div style="width: 550px; padding: 6%; padding-top: 300px;">
+                        <div style="float: left; color: green; font-size: 20px; width: 200px; height: 230px;">
+                            <img id="settings" src="images/logo/setting.png" style="width: 200px; height: 200px;"> <b style="color: #3e3e3e; text-shadow: none;">Profile Settings</b>
+                        </div>
+                        <div style="float: right; color: green; font-size: 20px; width: 200px; height: 230px;">
+                            <img id="cSurvey" src="images/logo/csurvey.png" style="width: 200px; height: 200px;"> <b style="color: #3e3e3e; text-shadow: none;">Customer Survey</b>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-	<!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+	<!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - Verification Check Page - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
         <div data-role="page" id="verificationCheckPage" style="background-color: #CCCCCC;">
             <div align="center" data-position-fixed="true" data-role="header" id="header">
-                <img class="ui-btn-left" id="vBack" src="images/back.png" style="margin-left: 15px; width: 80px; height: 75px;">
+                <img class="ui-btn-left" id="vBack" src="images/others/back.png" style="margin-left: 15px; width: 80px; height: 75px;">
 			<h3>Verification Check Sheet</h3>
-                <img class="ui-btn-right" onClick="WL.Client.logout('LoginRealm', {onSuccess:WL.Client.reloadApp})" src="images/logout.png" style="margin-right: 15px; width: 80px; height: 75px;">
+                <img class="ui-btn-right logOutButton" onClick="WL.Client.logout('LoginRealm', {onSuccess:WL.Client.reloadApp})" src="images/others/logout.png" style="margin-right: 15px; width: 80px; height: 75px;">
 		</div>
             <div data-role="content" id="main">
                 <div id="maincontainer">
@@ -198,12 +206,12 @@
                 </div>
             </div>
         </div>
-	<!--- - - -Start of Administrative Response Verification Check List- - - -->
+	<!--- - - -Administrative Response Verification Check List- - - -->
         <div data-role="page" id="responseVerificationPage" style="background-color: #CCCCCC;">
             <div align="center" data-position-fixed="true" data-role="header" id="arvclHeader">
-                <img class="ui-btn-left" id="rvpBack" src="images/back.png" style="margin-left: 15px; width: 80px; height: 75px;">
+                <img class="ui-btn-left" id="rvpBack" src="images/others/back.png" style="margin-left: 15px; width: 80px; height: 75px;">
 			<h3>Response Verification</h3>
-                <img class="ui-btn-right" onClick="WL.Client.logout('LoginRealm', {onSuccess:WL.Client.reloadApp})" src="images/logout.png" style="margin-right: 15px; width: 80px; height: 75px;">
+                <img class="ui-btn-right logOutButton" onClick="WL.Client.logout('LoginRealm', {onSuccess:WL.Client.reloadApp})" src="images/others/logout.png" style="margin-right: 15px; width: 80px; height: 75px;">
 		</div>
             <div data-role="content" style="padding: 15px">
                 <div id="rvpContainer">
@@ -344,12 +352,12 @@
                 </div>
             </div>
         </div>
-	<!--- - - - - - - - - - - - - -Start of Request for Certification Page- - - - - - - - - - - - - - -->
+	<!--- - - - - - - - - - - - - - Add Notification Page- - - - - - - - - - - - - - -->
         <div data-role="page" id="currencyCertificateRequestPage">
             <div align="center" data-position-fixed="true" data-role="header" id="rccHeader">
-                <img class="ui-btn-left" id="rccBack" src="images/back.png" style="margin-left: 15px; width: 80px; height: 75px;">
-			<h3>Create Notice</h3>
-                <img class="ui-btn-right" onClick="WL.Client.logout('LoginRealm', {onSuccess:WL.Client.reloadApp})" src="images/logout.png" style="margin-right: 15px; width: 80px; height: 75px;">
+                <img class="ui-btn-left" id="rccBack" src="images/others/back.png" style="margin-left: 15px; width: 80px; height: 75px;">
+			<h3>Issue Notice</h3>
+                <img class="ui-btn-right logOutButton" onClick="WL.Client.logout('LoginRealm', {onSuccess:WL.Client.reloadApp})" src="images/others/logout.png" style="margin-right: 15px; width: 80px; height: 75px;">
 		</div>
             <div data-role="content" style="padding: 15px">
                 <div id="rccContainer">
@@ -455,133 +463,249 @@
                 </div>
             </div>
         </div>
-	<!--- - - - - - - - - - - - - - -Show List Page- - - - - - - - - - - - - - - -->
+	<!--- - - - - - - - - - - - - - -Verification CheckList Page- - - - - - - - - - - - - - - -->
         <div data-role="page" id="showListPage" style="background-color: #cccccc;">
             <div align="center" data-position-fixed="true" data-role="header" id="listHeader">
-                <img class="ui-btn-left" id="listBack" src="images/back.png" style="margin-left: 15px; width: 80px; height: 75px;">
+                <img class="ui-btn-left" id="listBack" src="images/others/back.png" style="margin-left: 15px; width: 80px; height: 75px;">
 			<h3>Verification Checklist</h3>
-                <img class="ui-btn-right" onClick="WL.Client.logout('LoginRealm', {onSuccess:WL.Client.reloadApp})" src="images/logout.png" style="margin-right: 15px; width: 80px; height: 75px;">
+                <img class="ui-btn-right logOutButton" onClick="WL.Client.logout('LoginRealm', {onSuccess:WL.Client.reloadApp})" src="images/others/logout.png" style="margin-right: 15px; width: 80px; height: 75px;">
 		</div>
             <div data-role="content">
                 <ul data-role="listview" data-scroll="true" id="showlist" style="margin: 2%;">
                 </ul>
                 <div>
-                    <a data-role="button" href="#" id="addNew" style="line-height: 50Px; border-radius: 10px; height: 50px; border: 0px; width: 50%; float: right; color: white; background-color: green; text-shadow: none; font-size: 20px;">Add New</a>
+                    <a data-role="button" href="#" id="addNew" style="margin: 2%; line-height: 50Px; border-radius: 10px; height: 50px; border: 0px; width: 50%; float: right; color: white; background-color: green; text-shadow: none; font-size: 20px;">Add
+					New</a>
                 </div>
             </div>
         </div>
 	<!--- - - - - - - - - - - - - - -Preview Page- - - - - - - - - - - - - - - -->
         <div data-role="page" id="certificatePreviewPage">
             <div data-role="header" id="previewHeader">
-                <img id="okBtn" src="images/ok.png" style="margin-right: 15px; float: right; width: 80px; height: 80px;">
+                <img class="ui-btn-left" id="previewBack" src="images/others/back.png" style="margin-left: 15px; width: 80px; height: 75px;">
 			<h3>Notice Preview</h3>
+                <button class="ui-btn-right" id="previewDeleteBtn" style="margin-right: 1%; float: right; height: 74px; font-size: 20px; color: #FFFFFF; background-color: #B32A30; text-shadow: none; border: none; border-radius: 15px;">Delete</button>
+			<button class="ui-btn-right" id="okBtn" style="margin-right: 15%; float: right; height: 74px; font-size: 20px; color: #FFFFFF; background-color: green; text-shadow: none; border: none; border-radius: 15px;">Save as PDF</button>
             </div>
             <div data-role="content" style="padding: 2%;">
                 <div align="center" id="img">
-                    <img src="images/logo3.png" style="height: 150px; width: 450px;">
+                    <img src="images/others/logo3.png" style="height: 150px; width: 450px;">
 			</div>
                 <div id="testrccNoticeNumber">
-                    <label for="testrccNoticeNumberField" style="display: inline-block;">Notice
-					number : </label> <label id="testrccNoticeNumberField" style="display: inline-block;"> </label>
+                    <span for="testrccNoticeNumberField">Notice number : </span> <span id="testrccNoticeNumberField"> </span>
                 </div>
                 <div class="subHead">
                     <h4>Notice issued to</h4>
                 </div>
                 <div id="testrccRegisteredName">
-                    <label for="testrccRegisteredNameField" style="display: inline-block;">Registered name : </label> <label id="testrccRegisteredNameField" style="display: inline-block;">
-				</label>
+                    <span for="testrccRegisteredNameField">Registered name : </span> <span id="testrccRegisteredNameField"> </span>
                 </div>
                 <div id="testrccBusinessName">
-                    <label for="testrccBusinessNameField" style="display: inline-block;">Registered
-					business (trading) name : </label> <label id="testrccBusinessNameField" style="display: inline-block;"> </label>
+                    <span for="testrccBusinessNameField">Registered business
+					(trading) name : </span> <span id="testrccBusinessNameField"> </span>
                 </div>
                 <div id="testrccABN">
-                    <label for="testrccABNField" style="display: inline-block;">ABN
-					(for Australian business only) : </label> <label id="testrccABNField" style="display: inline-block;"> </label>
+                    <span for="testrccABNField">ABN (for Australian business
+					only) : </span> <span id="testrccABNField"> </span>
                 </div>
                 <div class="subHead">
                     <h4>Address</h4>
                 </div>
                 <div id="testrccBuildingName">
-                    <label for="testrccBuildingNameField" style="display: inline-block;">Building
-					name : </label> <label id="testrccBuildingNameField" style="display: inline-block;"> </label>
+                    <span for="testrccBuildingNameField">Building name : </span> <span id="testrccBuildingNameField"> </span>
                 </div>
                 <div id="testrccNumber">
-                    <label for="testrccNumberField" style="display: inline-block;">Building
-					Number : </label> <label id="testrccNumberField" style="display: inline-block;"> </label>
+                    <span for="testrccNumberField">Building Number : </span> <span id="testrccNumberField"> </span>
                 </div>
                 <div id="testrccStreetName">
-                    <label for="testrccStreetNameField" style="display: inline-block;">Street
-					Name : </label> <label id="testrccStreetNameField" style="display: inline-block;"> </label>
+                    <span for="testrccStreetNameField">Street Name : </span> <span id="testrccStreetNameField"> </span>
                 </div>
                 <div id="testrccSuburb">
-                    <label for="testrccSuburbField" style="display: inline-block;">Suburb
-					: </label> <label id="testrccSuburbField" style="display: inline-block;">
-				</label>
+                    <span for="testrccSuburbField">Suburb : </span> <span id="testrccSuburbField"> </span>
                 </div>
                 <div id="testrccState">
-                    <label for="testrccStateField" style="display: inline-block;">State
-					: </label> <label id="testrccStateField" style="display: inline-block;">
-				</label>
+                    <span for="testrccStateField">State : </span> <span id="testrccStateField"> </span>
                 </div>
                 <div id="testrccPostCode">
-                    <label for="testrccPostCodeField" style="display: inline-block;">PostCode
-					: </label> <label id="testrccPostCodeField" style="display: inline-block;">
-				</label>
+                    <span for="testrccPostCodeField">PostCode : </span> <span id="testrccPostCodeField"> </span>
                 </div>
                 <div class="subHead" id="testSubhead">
                     <h4>Notice</h4>
                 </div>
 			<!-- <div id="notice"> -->
                 <div id="i">
-                    <label style="display: inline-block;">I, </label>
+                    <span>I, </span>
                 </div>
                 <div id="officernameid">
-                    <label for="testrccOfficerNameField" id="testrccOfficerNameField" style="display: inline-block;"> </label>
+                    <span for="testrccOfficerNameField" id="testrccOfficerNameField">
+				</span>
                 </div>
                 <div id="noticetext">
-                    <label>, being an officer of the WorkCover Authority
+                    <span>, being an officer of the WorkCover Authority
 					authorised by the Authority to make such a request in accordance
 					with section 163A(3)(a) of the Workers Compensation Act 1987 (the
 					Act) hereby request you to provide, pursuant to section 163A(2) of
 					the Act, a certificate of currency issued by a licensed NSW insurer
 					under a policy of workers compensation insurance that certifies
 					that you are insured under a NSW policy at this time.<br>
-                    </label> <label>The certificate of currency must be produced for
+                    </span> <span>The certificate of currency must be produced for
 					inspection <em>within five days</em> of the date of this request to
 					me at
-				</label>
+				</span>
                 </div>
 			<!-- </div> -->
                 <div data-inline="true" id="rccOfficerAddress">
-                    <label data-inline="true" id="testrccOfficerAddressField"></label>
+                    <span data-inline="true" id="testrccOfficerAddressField"></span>
                 </div>
                 <div align="left" id="rccSignatureContainer" style="margin: 2%;">
                     <div id="rccSignatureCanvasContainer" style="width: 200px; height: 150px;">
                         <img id="testrccOfficerSignature" src="" style="height: 140px; width: 190px;">
 				</div>
-                    <label>Signature</label> <label>(Authorised officer of the
-					WorkCover Authority)</label>
+                    <span>Signature</span> <span>(Authorised officer of the
+					WorkCover Authority)</span>
                 </div>
                 <div align="left" id="dateHolder">
-                    <label id="testrccDateField"> </label>
+                    <span id="testrccDateField"> </span>
                 </div>
             </div>
         </div>
 	<!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - Notice List Page - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
         <div data-role="page" id="noticeListPage">
-            <div align="center" data-position-fixed="true" data-role="header" id="noticeListHeader">
-                <img class="ui-btn-left" id="nListBack" src="images/back.png" style="margin-left: 15px; width: 80px; height: 75px;">
-			<h3>Notice List</h3>
-                <img class="ui-btn-right" onClick="WL.Client.logout('LoginRealm', {onSuccess:WL.Client.reloadApp})" src="images/logout.png" style="margin-right: 15px; width: 80px; height: 75px;">
+            <div align="center" data-position="fixed !important" data-role="header" id="noticeListHeader">
+                <img class="ui-btn-left" id="nListBack" src="images/others/back.png" style="margin-left: 15px; width: 80px; height: 75px;">
+			<h3>Notice Management</h3>
+                <img class="ui-btn-right logOutButton" onClick="WL.Client.logout('LoginRealm', {onSuccess:WL.Client.reloadApp})" src="images/others/logout.png" style="margin-right: 15px; width: 80px; height: 75px;">
 		</div>
             <div data-role="content" style="padding: 2%;">
-                <div id="rccmpContainer">
-                    <label id="rccmpSubHead" style="font-size: 25px; background: #3e3e3e; color: white; margin-top: 3%; margin-bottom: 2%; text-shadow: none; border: 0px; padding: 2%; width: 70%;"></label>
-                    <ul id="rccmpList"></ul>
+                <label data-position="fixed" id="rccmpSubHead" style="font-size: 25px; background: #3e3e3e; color: white; margin-top: 3%; margin-bottom: 2%; text-shadow: none; border: 0px; padding: 2%; width: 70%;"></label>
+                <div class="example-wrapper" data-iscroll="" id="rccmpContainer" style="height: 30%;">
+                    <ul data-inset="true" id="rccmpList"></ul>
+                </div>
+                <div>
+                    <a data-role="button" href="#" id="rccmpAdd" style="line-height: 50Px; border-radius: 10px; height: 50px; border: 0px; width: 50%; float: right; color: white; background-color: green; text-shadow: none; font-size: 20px;">New
+					Notice</a>
+                </div>
+            </div>
+        </div>
+	<!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - Customer Management Page - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+        <div data-role="page" id="cMgmtPage">
+            <div align="center" data-position="fixed !important" data-role="header" id="cMgmtHeader">
+                <img class="ui-btn-left" id="cMgmtBack" src="images/others/back.png" style="margin-left: 15px; width: 80px; height: 75px;">
+			<h3>Customer Management</h3>
+                <img class="ui-btn-right logOutButton" onClick="WL.Client.logout('LoginRealm', {onSuccess:WL.Client.reloadApp})" src="images/others/logout.png" style="margin-right: 15px; width: 80px; height: 75px;">
+		</div>
+            <div align="center" data-role="content" style="margin-top: 25%;">
+                <div style="width: 550px; padding-top: 7%; padding-left: 10%; padding-right: 10%; padding-bottom: 6%;">
+                    <div style="float: left; color: green; font-size: 20px; width: 200px; height: 230px;">
+                        <img id="cHistory" src="images/customer/chistory.png" style="width: 200px; height: 200px;"> <b style="color: #3e3e3e; text-shadow: none;">Customer History</b>
+                    </div>
+                    <div style="float: right; color: green; font-size: 20px; width: 200px; height: 230px;">
+                        <img id="cAlert" src="images/customer/calert.png" style="width: 200px; height: 200px;"><b style="color: #3e3e3e; text-shadow: none;">Customer Alert</b>
+                    </div>
+                </div>
+                <div style="width: 550px; padding: 6%; padding-top: 300px;">
+                    <div style="float: left; color: green; font-size: 20px; width: 200px; height: 230px;">
+                        <img id="cAdd" src="images/customer/cadd.png" style="width: 200px; height: 200px;"> <b style="color: #3e3e3e; text-shadow: none;">Add Customer</b>
+                    </div>
+                    <div style="float: right; color: green; font-size: 20px; width: 200px; height: 230px;">
+                        <img id="cModify" src="images/customer/cmodify.png" style="width: 200px; height: 200px;"> <b style="color: #3e3e3e; text-shadow: none;">Modify Customer</b>
+                    </div>
+                </div>
+            </div>
+        </div>
+	<!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - My WSMS Page - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+        <div data-role="page" id="myWsmsPage">
+            <div align="center" data-position="fixed !important" data-role="header" id="myWsmsHeader">
+                <img class="ui-btn-left" id="myWsmsBack" src="images/others/back.png" style="margin-left: 15px; width: 80px; height: 75px;">
+			<h3>My WSMS</h3>
+                <img class="ui-btn-right logOutButton" onClick="WL.Client.logout('LoginRealm', {onSuccess:WL.Client.reloadApp})" src="images/others/logout.png" style="margin-right: 15px; width: 80px; height: 75px;">
+		</div>
+            <div align="center" data-role="content" style="margin-top: 25%;">
+                <div style="width: 550px; padding-top: 7%; padding-left: 10%; padding-right: 10%; padding-bottom: 6%;">
+                    <div style="float: left; color: green; font-size: 20px; width: 200px; height: 230px;">
+                        <img id="mywsmsRecord" src="images/mywsms/record.png" style="width: 200px; height: 200px;"> <b style="color: #3e3e3e; text-shadow: none;">Record Actions</b>
+                    </div>
+                    <div style="float: right; color: green; font-size: 20px; width: 200px; height: 230px;">
+                        <img id="mywsmsAdd" src="images/mywsms/add.png" style="width: 200px; height: 200px;"><b style="color: #3e3e3e; text-shadow: none;">Add Actions</b>
+                    </div>
+                </div>
+                <div style="width: 550px; padding: 6%; padding-top: 300px;">
+                    <div style="float: left; color: green; font-size: 20px; width: 200px; height: 230px;">
+                        <img id="mywsmstToDo" src="images/mywsms/todo.png" style="width: 200px; height: 200px;"> <b style="color: #3e3e3e; text-shadow: none;">My To Do List</b>
+                    </div>
+                </div>
+            </div>
+        </div>
+	<!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - Reports Page - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+        <div data-role="page" id="reportsPage">
+            <div align="center" data-position="fixed !important" data-role="header" id="reportsHeader">
+                <img class="ui-btn-left" id="reportsBack" src="images/others/back.png" style="margin-left: 15px; width: 80px; height: 75px;">
+			<h3>Reports</h3>
+                <img class="ui-btn-right logOutButton" onClick="WL.Client.logout('LoginRealm', {onSuccess:WL.Client.reloadApp})" src="images/others/logout.png" style="margin-right: 15px; width: 80px; height: 75px;">
+		</div>
+            <div align="center" data-role="content" style="margin-top: 10%;">
+                <div style="width: 550px; padding-top: 7%; padding-left: 10%; padding-right: 10%; padding-bottom: 6%;">
+                    <div style="float: left; color: green; font-size: 20px; width: 200px; height: 230px;">
+                        <img id="reportMgmt" src="images/reports/management.png" style="width: 190px; height: 190px;"> <b style="color: #3e3e3e; text-shadow: none;">Management Reports</b>
+                    </div>
+                    <div style="float: right; color: green; font-size: 20px; width: 200px; height: 230px;">
+                        <img id="reportCust" src="images/reports/customer.png" style="width: 200px; height: 200px;"><b style="color: #3e3e3e; text-shadow: none;">Customers Report</b>
+                    </div>
+                </div>
+                <hr style="width: 600px; margin-top: 30%; height: 5px; background-color: #3e3e3e; border: 0px; border-radius: 10px;">
+                <div style="width: 100%; padding: 2%; text-align: center;">
+                    <div style="width: 100px; padding: 30px; display: inline-block;">
+                        <img id="reportDaily" src="images/reports/daily.png" style="width: 100px; height: 100px;"><br> 
+                        <b style="color: #3e3e3e; text-shadow: none;">Daily<br>
+						Report
+					</b>
+                    </div>
+                    <div style="width: 100px; padding: 30px; display: inline-block;">
+                        <img id="reportWeekly" src="images/reports/weekly.png" style="width: 100px; height: 100px;"><b style="color: #3e3e3e; text-shadow: none;">Weekly Report</b>
+                    </div>
+                    <div style="width: 100px; padding: 30px; display: inline-block;">
+                        <img id="reportMonthly" src="images/reports/monthly.png" style="width: 100px; height: 100px;"><b style="color: #3e3e3e; text-shadow: none;">Monthly Report</b>
+                    </div>
+                </div>
+            </div>
+        </div>
+	<!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - Settings Page - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+        <div data-role="page" id="settingsPage">
+            <div align="center" data-position="fixed !important" data-role="header" id="settingsHeader">
+                <img class="ui-btn-left" id="settingsBack" src="images/others/back.png" style="margin-left: 15px; width: 80px; height: 75px;">
+			<h3>Profile Settings</h3>
+                <img class="ui-btn-right logOutButton" onClick="WL.Client.logout('LoginRealm', {onSuccess:WL.Client.reloadApp})" src="images/others/logout.png" style="margin-right: 15px; width: 80px; height: 75px;">
+		</div>
+            <div data-role="content" style="padding: 15px; text-shadow: none;">
+                <div id="rccContainer1">
+                    <div class="ui-field-contain">
+                        <label for="settingUserName" style="font-size: 20px;">Name</label>
+					<input disabled id="settingUserName" name="rccNoticeNumber" style="color: black; font-size: 20px;" type="text">
+                    </div>
+                    <div class="ui-field-contain">
+                        <label for="settingUserAddress1" style="font-size: 20px;">Address</label>
+					<input id="settingUserAddress1" name="rccNoticeNumber" style="color: #3e3e3e; font-size: 20px;" type="text">
+                    </div>
+                    <div class="ui-field-contain">
+                        <label for="settingUserAddress2" style="color: #3e3e3e; font-size: 20px;"></label> <input id="settingUserAddress2" name="rccNoticeNumber" style="color: #3e3e3e; font-size: 20px;" type="text">
+                    </div>
+                    <hr style="width: 100%; margin-top: 5%; margin-bottom: 5%; height: 5px; background-color: gray; border: 0px; border-radius: 10px;">
+                    <div class="ui-field-contain ">
+                        <label for="slider-flip-m">GPS Mapping</label> <select data-mini="true" data-role="slider" id="slider-flip-m" name="slider-flip-m"> &nbsp;&nbsp;&nbsp;&nbsp;
+						<option value="off">No</option> &nbsp;&nbsp;&nbsp;&nbsp;
+						<option value="on">Yes</option>
+					</select>
+                    </div>
+                    <label for="slider" style="font-size: 20px;">Auto SYNC
+					Interval (in min)</label> 
+                    <br> 
+                    <input data-highlight="true" id="slider" max="60" min="0" name="slider" type="range" value="0">
+                    <div style="width: 100px; padding: 30px; text-align: center;">
+                        <img id="printer" src="images/printer.png" style="width: 100px; height: 100px;"><b style="color: #3e3e3e; text-shadow: none; text-align: center;">Printer
+						Setting</b>
+                    </div>
                     <div>
-                        <a data-role="button" href="#" id="rccmpAdd" style="line-height: 50Px; border-radius: 10px; height: 50px; border: 0px; width: 50%; float: right; color: white; background-color: green; text-shadow: none; font-size: 20px;">Create
-						New Notice</a>
+                        <a data-role="button" href="#" id="saveSetting" style="line-height: 50Px; border-radius: 10px; height: 50px; border: 0px; width: 50%; float: right; color: white; background-color: green; text-shadow: none; font-size: 20px;">Save</a>
                     </div>
                 </div>
             </div>
@@ -602,5 +726,9 @@
 	<script src="js/previewNoticeCertificate.js"></script>
 	<script src="js/noticeListPage.js"></script>
 	<script src="js/mainPage.js"></script>
+	<script src="js/cMgmt.js"></script>
+	<script src="js/mywsms.js"></script>
+	<script src="js/reports.js"></script>
+	<script src="js/settings.js"></script>
     </body>
 </html>

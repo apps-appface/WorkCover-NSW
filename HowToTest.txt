@@ -1,0 +1,19 @@
+How to test
+------------
+
+
+1.Launch the WorkCover App.
+2.Login with 
+
+	Username : max   &     Password: max
+					(or)
+	Username : dexter   &     Password: dexter		
+	
+3.Then you will enter to Home page of WorkCover NSW
+
+
+
+Note:
+-----
+If Username and Password is other than this then it will show only busy indicator, 
+Then you have to kill the app and launch it again.

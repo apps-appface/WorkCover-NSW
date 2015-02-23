@@ -30,5 +30,6 @@
 	<procedure name="submitCurrencyCertificateRequest" />
 	<procedure name="retrieveNoticeData" />
 	<procedure name="retrieveData"/>
+	<procedure name="deleteNotice"/>
 
 </wl:adapter>

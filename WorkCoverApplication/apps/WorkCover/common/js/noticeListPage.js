@@ -13,10 +13,11 @@ function getNoticeList() {
 	});
 }
 
+var rccmpres;
 function rccmbRetrieveSuccess(result) {
 
 	var res = result.invocationResult;
-
+	rccmpres = res;
 	$("#rccmpSubHead").html(
 			"Notice Issued By " + user_role + " " + user_full_name);
 
@@ -49,7 +50,6 @@ function rccmbRetrieveSuccess(result) {
 	$("#rccmpList").html(noticeList);
 	busyIndicator.hide();
 	$.mobile.changePage($("#noticeListPage"));
-	$("#rccmpList").listview('refresh');
 }
 
 function rccmbRetrieveFail(errMsg) {
@@ -66,11 +66,69 @@ function rccmbViewNotice(noticeId) {
 }
 
 function rccmbPrintNotice(noticeId) {
-	alert("Under construction");
+	for (var i = 0; i < rccmpres.resultSet.length; i++) {
+		if (noticeId == rccmpres.resultSet[i].notice_id) {
+			noticeNumber = rccmpres.resultSet[i].notice_number;
+			window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, function(
+					fileSystem) {
+
+				console.log(fileSystem.name);
+				console.log(fileSystem.root.name);
+				console.log(fileSystem.root.fullPath);
+
+				fileSystem.root.getFile(noticeNumber + ".pdf", {
+					create : false
+				}, function(entry) {
+					fileUrl = entry.toURL();
+
+					cordova.exec(null, null, 'FileOpener2', 'open', [
+							'file:///storage/emulated/0/' + noticeNumber
+									+ '.pdf', 'application/pdf' ]);
+				}, function(error) {
+					alert("Please generate PDF first");
+				});
+			});
+
+		}
+	}
+
 }
 
 function rccmbMailNotice(noticeId) {
-	alert("Under construction");
+	for (var i = 0; i < rccmpres.resultSet.length; i++) {
+		if (noticeId == rccmpres.resultSet[i].notice_id) {
+			noticeNumber = rccmpres.resultSet[i].notice_number;
+			window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, function(
+					fileSystem) {
+
+				console.log(fileSystem.name);
+				console.log(fileSystem.root.name);
+				console.log(fileSystem.root.fullPath);
+
+				fileSystem.root.getFile(noticeNumber + ".pdf", {
+					create : false
+				}, function(entry) {
+					fileUrl = entry.toURL();
+
+					cordova.exec(null, null, "EmailComposer",
+							"showEmailComposer", [ {
+								subject : "Workcover NSW notice PDf file",
+								body : "Notice with PDF file",
+								toRecipients : [ "contact@workcover.nsw.gov.in" ],
+								ccRecipients : [],
+								bccRecipients : [],
+								bIsHTML : false,
+								attachments : [ "/storage/emulated/0/"
+										+ noticeNumber + ".pdf" ]
+							} ]);
+				}, function(error) {
+					alert("Unable to process. Please generate PDF");
+				});
+			});
+
+		}
+	}
+
 }
 
 $("#rccmpAdd").on('tap click', function() {
@@ -98,7 +156,7 @@ $("#rccmpAdd").on('tap click', function() {
 	$("#rccStateField").val('');
 	$("#rccPostCodeField").val('');
 	$("#rccOfficerNameField").val(user_full_name);
-	$("#rccOfficerAddressField").val(user_address);
+	$("#rccOfficerAddressField").val(user_address1+", "+user_address2);
 	$('#rccNoticeNumberField').val(getNoticeNumber());
 	$.mobile.changePage($("#currencyCertificateRequestPage"));
 });

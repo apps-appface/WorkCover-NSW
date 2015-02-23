@@ -8,6 +8,26 @@ function verifyUser(name, password) {
 	});
 }
 
+var getUserStatement = WL.Server
+.createSQLStatement("select * from USER where user_id=?;");
+
+function getUserData(userId) {
+	return WL.Server.invokeSQLStatement({
+		preparedStatement : getUserStatement,
+		parameters : [ userId ]
+	});
+}
+
+
+var updateUserStatement = WL.Server
+.createSQLStatement("update USER set user_address1=?,user_address2=?,auto_sync_interval=?,gps_mapping=?,user_fullname=? where user_id=?;");
+function updateUserData(addr1,addr2,autoSync,gpsMapping, userName,userId) {
+	return WL.Server.invokeSQLStatement({
+		preparedStatement : updateUserStatement,
+		parameters : [ addr1,addr2,autoSync,gpsMapping, userName,userId ]
+	});
+}
+
 //---------------------------------------------------------------------------------------------------
 
 function onAuthRequired(headers, errorMessage) {
@@ -63,7 +83,10 @@ function getSecretData() {
 		userRole:userDetail.resultSet[0].user_role,
 		userMobile : userDetail.resultSet[0].user_mobile,
 		userEmail : userDetail.resultSet[0].user_email,
-		userAddress:userDetail.resultSet[0].user_address,
-		userFullName:userDetail.resultSet[0].user_fullname
+		userAddress1:userDetail.resultSet[0].user_address1,
+		userAddress2:userDetail.resultSet[0].user_address2,
+		userFullName:userDetail.resultSet[0].user_fullname,
+		userAutoSyncInterval:userDetail.resultSet[0].auto_sync_interval,
+		userGpsMapping:userDetail.resultSet[0].gps_mapping
 	};
 }

@@ -31,6 +31,24 @@ em {
 		color: #8C3030;
 		text-shadow: none;
 	}
+	div#rccContainer1 {
+		margin: 2%;
+		padding: 2%;
+		color: #8C3030;
+		text-shadow: none;
+	}
+	#rccContainer1 .ui-field-contain>label,#rccContainer1 .ui-field-contain .ui-controlgroup-label,#rccContainer1 .ui-field-contain>.ui-rangeslider>label
+		{
+		width: 45%;
+		font-size: 20px;
+	}
+	#rccContainer1 .ui-field-contain>label  ~ [class*="ui-"],#rccContainer1 .ui-field-contain .ui-controlgroup-controls
+		{	
+		float:right;
+		width: 50%;
+		font-size: 20px;
+	}
+	
 	.ui-field-contain>label,.ui-field-contain .ui-controlgroup-label,.ui-field-contain>.ui-rangeslider>label
 		{
 		width: 60%;

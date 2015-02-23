@@ -30,5 +30,10 @@
 	<procedure name="submitAuthentication" />
 
 	<procedure name="getSecretData" securityTest="login_securityTest" />
+	
+	<procedure name="updateUserData" />
+	
+	<procedure name="getUserData" />
+	
 
 </wl:adapter>

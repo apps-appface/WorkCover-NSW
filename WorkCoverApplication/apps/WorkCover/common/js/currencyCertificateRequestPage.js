@@ -13,7 +13,7 @@ var rccOfficerAddress;
 var rccDate;
 var checktextEnable = 0;
 
-$("#rccABNField").change(function() {
+$("#rccABNField").on('change',function() {
 
 	var abn_result = $(this).find("option:selected").val();
 
@@ -100,7 +100,7 @@ $("#submitNewNotice").click(
 			}
 			rccPostCode = $("#rccPostCodeField").val();
 			rccOfficerName = user_full_name;
-			rccOfficerAddress = user_address;
+			rccOfficerAddress = 1+" "user_address2;
 			if (rccNoticeNumber != '' && rccRegisteredName != ''
 					&& rccBusinessName != '' && rccBuildingName != ''
 					&& rccNumber != '' && rccStreetName != ''
@@ -117,8 +117,8 @@ $("#submitNewNotice").click(
 							convertDate(lDate), sig, user_role ]
 				};
 				WL.Client.invokeProcedure(invocationData, {
-					onSuccess : rccSubmitSuccess,
-					onFailure : rccSubmitFailed
+					onSuccess : rccSubmitSuccess1,
+					onFailure : rccSubmitFailed1
 				});
 			} else {
 				busyIndicator.hide();
@@ -127,19 +127,19 @@ $("#submitNewNotice").click(
 
 		});
 
-function rccSubmitSuccess(result) {
+function rccSubmitSuccess1(result) {
 	busyIndicator.hide();
 	alert("Data saved successfully");
 	getNoticeList();
 }
 
-function rccSubmitFailed(error) {
+function rccSubmitFailed1(error) {
 	busyIndicator.hide();
 	alert("Unable to save data");
 }
 
 $("#rccBack").click(function() {
-	$.mobile.changePage("#noticeListPage");
+	getNoticeList();
 });
 
 $("#rccSignatureClear").click(function() {
