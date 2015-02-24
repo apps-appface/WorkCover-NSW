@@ -46,10 +46,10 @@ function submitAuthentication(name, password) {
 	
 	userDetail = verifyUser(name, password);
 
-	var userName = userDetail.resultSet[0].user_name;
-	var userId = userDetail.resultSet[0].user_id;
-
 	if (userDetail.resultSet.length > 0) {
+		
+		var userName = userDetail.resultSet[0].user_name;
+		var userId = userDetail.resultSet[0].user_id;
 
 		WL.Logger.info('Authenticated...');
 

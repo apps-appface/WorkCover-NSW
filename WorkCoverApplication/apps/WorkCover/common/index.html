@@ -39,7 +39,7 @@
 
 				<div>
 					<p id="errorMessage"
-						style="color: red; font-size: 25px; text-shadow: none; margin-left: 10px;"></p>
+						style="color: #FA5858; font-size: 25px; text-shadow: none; margin-left: 10px;"></p>
 				</div>
 
 				<div style="width: 70%; height: 25%; float: left; margin: 2%;">
@@ -70,9 +70,8 @@
 
 			<div data-role="content" align="center" style="margin-top: 5%;">
 
-				<label id="welcomelbl"
-					style="text-shadow: none; color: #BF4980; font-size: 25px;">Welcome
-					Inspector Max Alexzeder</label>
+				<b id="welcomelbl"
+					style="text-shadow: none; color: #BF4980; font-size: 25px;"></b>
 
 				<div
 					style="width: 550px; padding-top: 7%; padding-left: 10%; padding-right: 10%; padding-bottom: 6%;">
@@ -484,7 +483,7 @@
 		</div>
 	</div>
 
-	<!---------------- Add Notification Page---------------->
+	<!---------------- Add Notice Page---------------->
 
 	<div data-role="page" id="currencyCertificateRequestPage">
 
@@ -501,6 +500,20 @@
 
 		<div data-role="content" style="padding: 15px">
 
+			<div data-role="popup" id="popupABN" data-theme="a"
+				class="ui-corner-all">
+
+				<div style="padding: 10px 10px;">
+
+					<h3>Please enter ABN</h3>
+					<input type="text" id="ABNNumber" placeholder="ABN number"
+						data-theme="a" style="font-size: 20px;">
+
+					<button type="submit" id="ABNSearchBtn"
+						class="ui-btn ui-corner-all ui-shadow ui-btn-b ui-btn-icon-left ui-icon-check">Submit</button>
+				</div>
+			</div>
+
 			<div id="rccContainer">
 				<div class="ui-field-contain">
 					<label for="rccNoticeNumberField">Notice number</label> <input
@@ -513,20 +526,7 @@
 				</div>
 				<div class="ui-field-contain">
 					<label for="rccABNField">ABN (for Australian business only)</label>
-					<select name="rccABN" id="rccABNField">
-						<option value="none" id="formLabels">none</option>     
-						<option value="13 000 636 019" id="formLabels">13 000 636
-							019</option>     
-						<option value="36 866 850 610" id="formLabels">36 866 850
-							610</option>     
-						<option value="53 004 085 616" id="formLabels">53 004 085
-							616</option>     
-						<option value="80 957 726 462" id="formLabels">80 957 726
-							462</option>
-						<option value="94 686 693 834" id="formLabels">94 686 693
-							834</option>
-					</select>
-					<!-- <input type="text" name="rccABN" id="rccABNField" value=""> -->
+					<input type="text" name="rccABN" id="rccABNField" value="">
 				</div>
 
 				<div class="ui-field-contain">
@@ -572,26 +572,19 @@
 						name="rccSuburb" id="rccSuburbField" value="">
 				</div>
 
-				<div class="ui-field-contain" style="display: none" id="stateText">
+				<div class="subHead">
+					<h4>Other Information</h4>
+				</div>
+
+				<div class="ui-field-contain" id="statusText">
+					<label for="rccStatusText">Status</label> <input type="text"
+						name="rccStateText" id="rccStatusText">
+				</div>
+
+				<div class="ui-field-contain" id="stateText">
 					<label for="rccStateText">State</label> <input type="text"
-						name="rccStateText" id="rccStateText" value="">
+						name="rccStateText" id="rccStateText">
 				</div>
-
-				<div class="ui-field-contain " id="stateSelect">
-					<label for="rccStateField" class="select">State</label> <select
-						name="rccState" id="rccStateField">
-						<option value="New South Wales" id="formLabels">New South
-							Wales</option>     
-						<option value="Queensland" id="formLabels">Queensland</option>
-						    
-						<option value="South Australia" id="formLabels">South
-							Australia</option>     
-						<option value="Western Australia" id="formLabels">Western
-							Australia</option>
-						<option value="Victoria" id="formLabels">Victoria</option>
-					</select>
-				</div>
-
 
 				<div class="ui-field-contain">
 					<label for="rccPostCodeField">PostCode</label> <input type="number"
@@ -692,7 +685,7 @@
 
 			<div id="img" align="center">
 				<img src="images/others/logo3.png"
-					style="height: 150px; width: 450px;" />
+					style="height: 150px; width: 450px;" /><br> <br>
 			</div>
 
 			<div id="testrccNoticeNumber">
@@ -744,6 +737,15 @@
 				<span for="testrccSuburbField">Suburb : </span> <span
 					id="testrccSuburbField"> </span>
 			</div>
+			
+			<div class="subHead">
+				<h4>Other Information</h4>
+			</div>
+			
+			<div id="testrccStatus">
+				<span for="testrccStatusField">Status : </span> <span
+					id="testrccStatusField"> </span>
+			</div>
 
 			<div id="testrccState">
 				<span for="testrccStateField">State : </span> <span
@@ -789,9 +791,9 @@
 
 			<div id="rccSignatureContainer" align="left" style="margin: 2%;">
 				<div id="rccSignatureCanvasContainer"
-					style="width: 200px; height: 150px;">
+					style="width: 300px; height: 150px;">
 					<img src="" id="testrccOfficerSignature"
-						style="height: 140px; width: 190px;">
+						style="height: 150px; width: 300px;">
 				</div>
 				<span>Signature</span> <span>(Authorised officer of the
 					WorkCover Authority)</span>
@@ -823,7 +825,7 @@
 
 			<label id="rccmpSubHead" data-position="fixed"
 				style="font-size: 25px; background: #3e3e3e; color: white; margin-top: 3%; margin-bottom: 2%; text-shadow: none; border: 0px; padding: 2%; width: 70%;"></label>
-			<div id="rccmpContainer" class="example-wrapper" data-iscroll
+			<div id="rccmpContainer" class="example-wrapper"
 				style="height: 30%;">
 
 				<ul id="rccmpList" data-inset="true"></ul>
@@ -928,6 +930,14 @@
 						style="width: 200px; height: 200px;" /> <b
 						style="color: #3e3e3e; text-shadow: none;">My To Do List</b>
 				</div>
+
+				<div
+					style="float: right; color: green; font-size: 20px; width: 200px; height: 230px;">
+					<img id="mywsmstResponseCheck"
+						src="images/mywsms/responsecheck.ico"
+						style="width: 200px; height: 200px;" /> <b
+						style="color: #3e3e3e; text-shadow: none;">Response Check</b>
+				</div>
 			</div>
 		</div>
 	</div>
@@ -1012,8 +1022,8 @@
 			<div id="rccContainer1">
 				<div class="ui-field-contain">
 					<label for="settingUserName" style="font-size: 20px;">Name</label>
-					<input type="text" name="rccNoticeNumber" disabled="disabled" id="settingUserName"
-						style="color: black; font-size: 20px;">
+					<input type="text" name="rccNoticeNumber" disabled="disabled"
+						id="settingUserName" style="color: black; font-size: 20px;">
 				</div>
 
 				<div class="ui-field-contain">
@@ -1033,7 +1043,7 @@
 					style="width: 100%; margin-top: 5%; margin-bottom: 5%; height: 5px; background-color: gray; border: 0px; border-radius: 10px;">
 
 				<div class="ui-field-contain ">
-					<label for="slider-flip-m">GPS Mapping</label> <select
+					<label for="slider-flip-m">GPS Location Mapping</label> <select
 						name="slider-flip-m" id="slider-flip-m" data-role="slider"
 						data-mini="true">     
 						<option value="off">No</option>     
@@ -1041,20 +1051,29 @@
 					</select>
 				</div>
 
+				<hr
+					style="width: 100%; margin-top: 5%; margin-bottom: 5%; height: 5px; background-color: gray; border: 0px; border-radius: 10px;">
+
 				<label for="slider" style="font-size: 20px;">Auto SYNC
 					Interval (in min)</label> <br> <input type="range" name="slider"
-					id="slider" value="0" min="0" max="60" data-highlight="true">
+					id="slider" value="0" min="10" max="60" data-highlight="true">
 
-				<div style="width: 100px; padding: 30px; text-align: center;">
+				<hr
+					style="width: 100%; margin-top: 5%; margin-bottom: 5%; height: 5px; background-color: gray; border: 0px; border-radius: 10px;">
+
+
+
+				<div
+					style="width: 300px; height: 100px; text-align: center; display: table; position: absolute; bottom: 10px; left: 20px;">
 					<img id="printer" src="images/printer.png"
-						style="width: 100px; height: 100px;" /><b
-						style="color: #3e3e3e; text-shadow: none; text-align: center;">Printer
-						Setting</b>
+						style="width: 100px; height: 100px; float: left" /> <label
+						style="color: #8C3030; text-shadow: none; text-align: center; display: inline-block; line-height: 100px; position: absolute; left: 110px;">Printer
+						Setting</label>
 				</div>
 
-				<div>
+				<div style="position: absolute; bottom: 10px; right: 20px;">
 					<a data-role="button" href="#" id="saveSetting"
-						style="line-height: 50Px; border-radius: 10px; height: 50px; border: 0px; width: 50%; float: right; color: white; background-color: green; text-shadow: none; font-size: 20px;">Save</a>
+						style="line-height: 50Px; border-radius: 10px; height: 50px; border: 0px; width: 100%; float: right; color: white; background-color: green; text-shadow: none; font-size: 20px;">Save</a>
 				</div>
 
 			</div>
@@ -1068,7 +1087,7 @@
 	<script src="js/verificationListPage.js"></script>
 	<script src="js/jquery.mobile.datepicker.js"></script>
 	<script src="js/responseVerificationPage.js"></script>
-	<script src="js/currencyCertificateRequestPage.js"></script>
+	<script src="js/issueNoticeFormPage.js"></script>
 	<script src="js/modernizr.custom.34982.js"></script>
 	<script src="js/signatureCapture.js"></script>
 	<script src="js/jspdf.js"></script>
@@ -1081,5 +1100,6 @@
 	<script src="js/mywsms.js"></script>
 	<script src="js/reports.js"></script>
 	<script src="js/settings.js"></script>
+	<script src="js/verificationCheckFormPage.js"></script>
 </body>
 </html>

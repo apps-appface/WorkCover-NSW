@@ -30,7 +30,7 @@ function updateUserSuccess(result){
 
 		WL.Client.invokeProcedure(invocationData, {
 			onSuccess : getUserDataSuccess,
-			onFailure : fail
+			onFailure : getUserDataFail
 		});
 }
 
@@ -54,5 +54,10 @@ function getUserDataSuccess(result){
 
 function updateUserFail(errMsg){
 	busyIndicator.hide();
-	alert("Unable to updated");
+	alert("Unable to update");
+}
+
+function getUserDataFail(errMsg){
+	busyIndicator.hide();
+	alert("Unable to update");
 }

@@ -44,6 +44,8 @@ function getDataSuccess(result) {
 	$("#testrccSuburbField").html(noticeDetail.resultSet[0].suburb);
 
 	$("#testrccStateField").html(noticeDetail.resultSet[0].state);
+	
+	$("#testrccStatusField").html(noticeDetail.resultSet[0].status);
 
 	$("#testrccPostCodeField").html(noticeDetail.resultSet[0].post_code);
 
@@ -61,12 +63,6 @@ function getDataSuccess(result) {
 	$.mobile.changePage($("#certificatePreviewPage"));
 
 	busyIndicator.hide();
-}
-
-function getDate(date) {
-	var d1 = date.split("T");
-	var d2 = d1[0].split("-");
-	return d2[2] + "/" + d2[1] + "/" + d2[0];
 }
 
 $('#okBtn')
@@ -117,37 +113,41 @@ $('#okBtn')
 						'width' : 170,
 						'elementHandlers' : specialElementHandlers
 					});
-					doc.fromHTML($('#testrccState').html(), 15, 117, {
+					doc.fromHTML($('#testrccStatus').html(), 15, 117, {
 						'width' : 170,
 						'elementHandlers' : specialElementHandlers
 					});
-					doc.fromHTML($('#testrccPostCode').html(), 15, 125, {
+					doc.fromHTML($('#testrccState').html(), 15, 125, {
 						'width' : 170,
 						'elementHandlers' : specialElementHandlers
 					});
-					doc.text(15, 140, "Notice");
-					doc.fromHTML($('#i').html(), 15, 143, {
+					doc.fromHTML($('#testrccPostCode').html(), 15, 133, {
 						'width' : 170,
 						'elementHandlers' : specialElementHandlers
 					});
-					doc.fromHTML($('#officernameid').html(), 20, 143, {
+					doc.text(15, 148, "Notice");
+					doc.fromHTML($('#i').html(), 15, 151, {
 						'width' : 170,
 						'elementHandlers' : specialElementHandlers
 					});
-					doc.fromHTML($('#noticetext').html(), 14, 148, {
+					doc.fromHTML($('#officernameid').html(), 20, 151, {
 						'width' : 170,
 						'elementHandlers' : specialElementHandlers
 					});
-					doc.text(15, 185, "Officer's Address : ");
-					doc.fromHTML($('#rccOfficerAddress').html(), 75, 180, {
+					doc.fromHTML($('#noticetext').html(), 14, 156, {
 						'width' : 170,
 						'elementHandlers' : specialElementHandlers
 					});
-					doc.fromHTML($('#rccSignatureContainer').html(), 15, 205, {
+					doc.text(15, 195, "Officer's Address : ");
+					doc.fromHTML($('#rccOfficerAddress').html(), 75, 195, {
 						'width' : 170,
 						'elementHandlers' : specialElementHandlers
 					});
-					doc.fromHTML($('#dateHolder').html(), 15, 215, {
+					doc.fromHTML($('#rccSignatureContainer').html(), 15, 213, {
+						'width' : 170,
+						'elementHandlers' : specialElementHandlers
+					});
+					doc.fromHTML($('#dateHolder').html(), 15, 223, {
 						'width' : 170,
 						'elementHandlers' : specialElementHandlers
 					});
@@ -212,7 +212,6 @@ function getDataFail(errMsg) {
 }
 
 $('#previewDeleteBtn').click(function() {
-
 	WL.SimpleDialog.show("Delete", "Are you sure ? ", [ {
 		text : 'Cancel'
 	}, {
@@ -242,4 +241,10 @@ function deleteNoticeSuccess(result) {
 function deleteNoticeFail(errMsg) {
 	busyIndicator.hide();
 	alert("Unable to delete notice");
+}
+
+function getDate(date) {
+	var d1 = date.split("T");
+	var d2 = d1[0].split("-");
+	return d2[2] + "/" + d2[1] + "/" + d2[0];
 }

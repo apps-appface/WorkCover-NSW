@@ -26,7 +26,12 @@ ul{
 #rccmpContainer{
 	text-align: center;	
 }
-
+/* 
+#liLabels{
+	overflow: hidden; 
+	text-overflow: ellipsis;
+}
+ */
 li#rccmpLi{
 	vertical-align: middle;
 	overflow: hidden;

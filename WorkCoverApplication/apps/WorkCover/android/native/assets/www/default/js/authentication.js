@@ -1,9 +1,9 @@
 
 /* JavaScript content from js/authentication.js in folder common */
-var BankAuthenticationChallengeHandler = WL.Client
+var NSWAuthenticationChallengeHandler = WL.Client
 		.createChallengeHandler("LoginRealm");
 
-BankAuthenticationChallengeHandler.isCustomResponse = function(response) {
+NSWAuthenticationChallengeHandler.isCustomResponse = function(response) {
 	if (!response || !response.responseJSON || response.responseText === null) {
 		return false;
 	}
@@ -14,24 +14,27 @@ BankAuthenticationChallengeHandler.isCustomResponse = function(response) {
 	}
 };
 
-BankAuthenticationChallengeHandler.handleChallenge = function(response) {
+NSWAuthenticationChallengeHandler.handleChallenge = function(response) {
 	var authRequired = response.responseJSON.authRequired;
 
 	if (authRequired == true) {
+		busyIndicator.hide();
 		$('#AuthBody').show();
 		$("#AppBody").hide();
 		$("#username").empty();
 		$("#password").empty();
 
-		if (response.responseJSON.errorMessage)
+		if (response.responseJSON.errorMessage) {
+			busyIndicator.hide();
 			$("#errorMessage").html(response.responseJSON.errorMessage);
+		}
 
 	} else if (authRequired == false) {
 
 		$('#AuthBody').hide();
 		$("#AppBody").show();
-		
-		BankAuthenticationChallengeHandler.submitSuccess();
+
+		NSWAuthenticationChallengeHandler.submitSuccess();
 	}
 };
 
@@ -48,6 +51,6 @@ $("#loginButton").bind(
 				parameters : [ email.toString(), password ]
 			};
 
-			BankAuthenticationChallengeHandler.submitAdapterAuthentication(
+			NSWAuthenticationChallengeHandler.submitAdapterAuthentication(
 					invocationData, {});
 		});

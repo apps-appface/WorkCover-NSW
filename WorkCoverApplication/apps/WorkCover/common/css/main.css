@@ -1,5 +1,15 @@
 @CHARSET "UTF-8";
 
+#header,#homeHeader,#arvclHeader,#rccHeader,#listHeader,#previewHeader,#noticeListHeader,#cMgmtHeader,#myWsmsHeader,#reportsHeader,#settingsHeader {
+	background-color: #DFA800;
+	border: 0px;
+	color: white;
+	height:85px;
+	text-shadow:none;
+	line-height:60px;
+	font-size: 25px;
+}
+
 #loginHeader {
 	background-color: transparent;
 	border: 0px;

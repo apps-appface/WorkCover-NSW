@@ -17,30 +17,21 @@
  specific language governing permissions and limitations
  under the License.
 -->
-<widget
-    id="WorkCover"
-    version="1.0.0.0"
-    xmlns="http://www.w3.org/ns/widgets" >
-
-    <name>
-WorkCover
-    </name>
+<widget xmlns     = "http://www.w3.org/ns/widgets"
+        id        = "WorkCover"
+        version   = "1.0.0.0">
+    <name>WorkCover</name>
 
     <description>
         WorkCover
     </description>
 
-    <author
-        email="application author&apos;s e-mail"
-        href="http://mycompany.com" >
+    <author href="http://mycompany.com" email="application author's e-mail">
         application's author
     </author>
 
-    <access origin="*" />
-
-    <preference
-        name="loglevel"
-        value="DEBUG" />
+    <access origin="*"/>
+    <preference name="loglevel" value="DEBUG" />
     <!--
       <preference name="splashscreen" value="resourceName" />
       <preference name="backgroundColor" value="0xFFF" />
@@ -49,223 +40,135 @@ WorkCover
       <preference name="disallowOverscroll" value="true" />
     -->
     <!-- This is required for native Android hooks -->
-    <feature name="App" >
-        <param
-            name="android-package"
-            value="org.apache.cordova.App" />
+    <feature name="App">
+        <param name="android-package" value="org.apache.cordova.App" />
     </feature>
-    <feature name="Geolocation" >
-        <param
-            name="android-package"
-            value="org.apache.cordova.geolocation.GeoBroker" />
+    <feature name="Geolocation">
+        <param name="android-package" value="org.apache.cordova.geolocation.GeoBroker" />
     </feature>
-    <feature name="Device" >
-        <param
-            name="android-package"
-            value="org.apache.cordova.device.Device" />
+    <feature name="Device">
+        <param name="android-package" value="org.apache.cordova.device.Device" />
     </feature>
-    <feature name="Accelerometer" >
-        <param
-            name="android-package"
-            value="org.apache.cordova.devicemotion.AccelListener" />
+    <feature name="Accelerometer">
+        <param name="android-package" value="org.apache.cordova.devicemotion.AccelListener" />
     </feature>
-    <feature name="Compass" >
-        <param
-            name="android-package"
-            value="org.apache.cordova.deviceorientation.CompassListener" />
+    <feature name="Compass">
+        <param name="android-package" value="org.apache.cordova.deviceorientation.CompassListener" />
     </feature>
-    <feature name="Media" >
-        <param
-            name="android-package"
-            value="org.apache.cordova.media.AudioHandler" />
+    <feature name="Media">
+        <param name="android-package" value="org.apache.cordova.media.AudioHandler" />
+    </feature>         
+    <feature name="Camera">
+        <param name="android-package" value="org.apache.cordova.camera.CameraLauncher" />
     </feature>
-    <feature name="Camera" >
-        <param
-            name="android-package"
-            value="org.apache.cordova.camera.CameraLauncher" />
+    <feature name="Contacts">
+        <param name="android-package" value="org.apache.cordova.contacts.ContactManager" />
     </feature>
-    <feature name="Contacts" >
-        <param
-            name="android-package"
-            value="org.apache.cordova.contacts.ContactManager" />
+    <feature name="File">
+        <param name="android-package" value="org.apache.cordova.file.FileUtils" />
     </feature>
-    <feature name="File" >
-        <param
-            name="android-package"
-            value="org.apache.cordova.file.FileUtils" />
+    <feature name="NetworkStatus">
+        <param name="android-package" value="org.apache.cordova.networkinformation.NetworkManager" />
     </feature>
-    <feature name="NetworkStatus" >
-        <param
-            name="android-package"
-            value="org.apache.cordova.networkinformation.NetworkManager" />
+    <feature name="Notification">
+        <param name="android-package" value="org.apache.cordova.dialogs.Notification" />
+    </feature>    
+    <feature name="FileTransfer">
+        <param name="android-package" value="org.apache.cordova.filetransfer.FileTransfer" />
     </feature>
-    <feature name="Notification" >
-        <param
-            name="android-package"
-            value="org.apache.cordova.dialogs.Notification" />
+    <feature name="Capture">
+        <param name="android-package" value="org.apache.cordova.mediacapture.Capture" />
     </feature>
-    <feature name="FileTransfer" >
-        <param
-            name="android-package"
-            value="org.apache.cordova.filetransfer.FileTransfer" />
+    <feature name="Battery">
+        <param name="android-package" value="org.apache.cordova.batterystatus.BatteryListener" />
     </feature>
-    <feature name="Capture" >
-        <param
-            name="android-package"
-            value="org.apache.cordova.mediacapture.Capture" />
+    <feature name="SplashScreen">
+        <param name="android-package" value="org.apache.cordova.splashscreen.SplashScreen" />
+    </feature> 
+    <feature name="Globalization">
+        <param name="android-package" value="org.apache.cordova.globalization.Globalization" />
     </feature>
-    <feature name="Battery" >
-        <param
-            name="android-package"
-            value="org.apache.cordova.batterystatus.BatteryListener" />
-    </feature>
-    <feature name="SplashScreen" >
-        <param
-            name="android-package"
-            value="org.apache.cordova.splashscreen.SplashScreen" />
-    </feature>
-    <feature name="Globalization" >
-        <param
-            name="android-package"
-            value="org.apache.cordova.globalization.Globalization" />
-    </feature>
-    <feature name="InAppBrowser" >
-        <param
-            name="android-package"
-            value="org.apache.cordova.inappbrowser.InAppBrowser" />
-    </feature>
-    <feature name="Vibration" >
-        <param
-            name="android-package"
-            value="org.apache.cordova.vibration.Vibration" />
-    </feature>
-    <feature name="StatusBar" >
-        <param
-            name="android-package"
-            onload="true"
-            value="org.apache.cordova.statusbar.StatusBar" />
-    </feature>
-    <feature name="WLInitializationPlugin" >
-        <param
-            name="android-package"
-            value="com.worklight.androidgap.plugin.WLInitializationPlugin" />
-        <param
-            name="onload"
-            value="true" />
+    <feature name="InAppBrowser">
+        <param name="android-package" value="org.apache.cordova.inappbrowser.InAppBrowser" />
+    </feature>    
+    <feature name="Vibration">
+        <param name="android-package" value="org.apache.cordova.vibration.Vibration" />
+    </feature> 
+    <feature name="StatusBar">
+     	<param name="android-package" value="org.apache.cordova.statusbar.StatusBar" onload="true" />
+   	</feature>        
+    
+    <feature name="WLInitializationPlugin">
+        <param name="android-package" value="com.worklight.androidgap.plugin.WLInitializationPlugin" />
+        <param name="onload" value="true" />
     </feature>
     <!-- Due to bug in cordova next feature must set "onload" to false -->
-    <feature name="UserAuth" >
-        <param
-            name="android-package"
-            value="com.worklight.androidgap.plugin.UserAuthPlugin" />
-        <param
-            name="onload"
-            value="false" />
+   <feature name="UserAuth">
+        <param name="android-package" value="com.worklight.androidgap.plugin.UserAuthPlugin" />
+        <param name="onload" value="false" />
     </feature>
-    <feature name="LoggerPlugin" >
-        <param
-            name="android-package"
-            value="com.worklight.androidgap.plugin.LoggerPlugin" />
+    <feature name="LoggerPlugin">
+        <param name="android-package" value="com.worklight.androidgap.plugin.LoggerPlugin" />
     </feature>
-    <feature name="WLApp" >
-        <param
-            name="android-package"
-            value="com.worklight.androidgap.plugin.WLApp" />
+    <feature name="WLApp">
+        <param name="android-package" value="com.worklight.androidgap.plugin.WLApp" />
     </feature>
-    <feature name="NativePage" >
-        <param
-            name="android-package"
-            value="com.worklight.androidgap.plugin.NativePage" />
+    <feature name="NativePage">
+        <param name="android-package" value="com.worklight.androidgap.plugin.NativePage" />
     </feature>
-    <feature name="NativeBusyIndicator" >
-        <param
-            name="android-package"
-            value="com.worklight.androidgap.plugin.BusyIndicator" />
+    <feature name="NativeBusyIndicator">
+        <param name="android-package" value="com.worklight.androidgap.plugin.BusyIndicator" />
     </feature>
-    <feature name="SecurityPlugin" >
-        <param
-            name="android-package"
-            value="com.worklight.androidgap.plugin.SecurityPlugin" />
+    <feature name="SecurityPlugin">
+        <param name="android-package" value="com.worklight.androidgap.plugin.SecurityPlugin" />
     </feature>
-    <feature name="StoragePlugin" >
-        <param
-            name="android-package"
-            value="com.worklight.androidgap.plugin.StoragePlugin" />
+    <feature name="StoragePlugin">
+        <param name="android-package" value="com.worklight.androidgap.plugin.StoragePlugin" />
     </feature>
-    <feature name="Push" >
-        <param
-            name="android-package"
-            value="com.worklight.androidgap.plugin.Push" />
+    <feature name="Push">
+        <param name="android-package" value="com.worklight.androidgap.plugin.Push" />
     </feature>
-    <feature name="WebResourcesDownloader" >
-        <param
-            name="android-package"
-            value="com.worklight.androidgap.plugin.WebResourcesDownloaderPlugin" />
+    <feature name="WebResourcesDownloader">
+        <param name="android-package" value="com.worklight.androidgap.plugin.WebResourcesDownloaderPlugin" />
     </feature>
-    <feature name="NetworkDetector" >
-        <param
-            name="android-package"
-            value="com.worklight.androidgap.plugin.NetworkDetector" />
+    <feature name="NetworkDetector">
+        <param name="android-package" value="com.worklight.androidgap.plugin.NetworkDetector" />
     </feature>
-    <feature name="DeviceAuth" >
-        <param
-            name="android-package"
-            value="com.worklight.androidgap.plugin.DeviceAuthPlugin" />
+    <feature name="DeviceAuth">
+        <param name="android-package" value="com.worklight.androidgap.plugin.DeviceAuthPlugin" />
     </feature>
-    <feature name="WifiPlugin" >
-        <param
-            name="android-package"
-            value="com.worklight.androidgap.plugin.WifiPlugin" />
+    <feature name="WifiPlugin">
+        <param name="android-package" value="com.worklight.androidgap.plugin.WifiPlugin" />
     </feature>
-    <feature name="WLGeolocationPlugin" >
-        <param
-            name="android-package"
-            value="com.worklight.androidgap.plugin.WLGeolocationPlugin" />
+    <feature name="WLGeolocationPlugin">
+        <param name="android-package" value="com.worklight.androidgap.plugin.WLGeolocationPlugin" />
     </feature>
-    <feature name="ForegroundBinderPlugin" >
-        <param
-            name="android-package"
-            value="com.worklight.androidgap.plugin.ForegroundBinderPlugin" />
+    <feature name="ForegroundBinderPlugin">
+        <param name="android-package" value="com.worklight.androidgap.plugin.ForegroundBinderPlugin" />
     </feature>
-    <feature name="FIPSHttpPlugin" >
-        <param
-            name="android-package"
-            value="com.worklight.androidgap.plugin.FIPSHttpPlugin" />
+    <feature name="FIPSHttpPlugin">
+        <param name="android-package" value="com.worklight.androidgap.plugin.FIPSHttpPlugin" />
     </feature>
-    <feature name="WLCustomDialog" >
-        <param
-            name="android-package"
-            value="com.worklight.androidgap.plugin.WLCustomDialog" />
+    <feature name="WLCustomDialog">
+        <param name="android-package" value="com.worklight.androidgap.plugin.WLCustomDialog" />
     </feature>
-    <feature name="NetworkStatus" >
-        <param
-            name="android-package"
-            value="com.worklight.androidgap.plugin.WLNetworkManager" />
+    <feature name="NetworkStatus">
+        <param name="android-package" value="com.worklight.androidgap.plugin.WLNetworkManager" />
     </feature>
-    <feature name="WLSplashScreen" >
-        <param
-            name="android-package"
-            value="com.worklight.androidgap.plugin.WLSplashScreenPlugin" />
+    <feature name="WLSplashScreen">
+        <param name="android-package" value="com.worklight.androidgap.plugin.WLSplashScreenPlugin" />
     </feature>
-    <feature name="WLDirectUpdatePlugin" >
-        <param
-            name="android-package"
-            value="com.worklight.androidgap.plugin.WLDirectUpdatePlugin" />
+    <feature name="WLDirectUpdatePlugin">
+        <param name="android-package" value="com.worklight.androidgap.plugin.WLDirectUpdatePlugin" />
     </feature>
-    <feature name="WLNativeXHRPlugin" >
-        <param
-            name="android-package"
-            value="com.worklight.androidgap.plugin.WLNativeXHRPlugin" />
+     <feature name="WLNativeXHRPlugin">
+        <param name="android-package" value="com.worklight.androidgap.plugin.WLNativeXHRPlugin" />
     </feature>
-    <feature name="WLActionSenderPlugin" >
-        <param
-            name="android-package"
-            value="com.worklight.androidgap.plugin.WLActionSenderPlugin" />
+    <feature name="WLActionSenderPlugin">
+    	<param name="android-package" value="com.worklight.androidgap.plugin.WLActionSenderPlugin" />
     </feature>
-    <feature name="WLTrusteer" >
-        <param
-            name="android-package"
-            value="com.worklight.androidgap.plugin.WLTrusteerPlugin" />
+    <feature name="WLTrusteer">
+        <param name="android-package" value="com.worklight.androidgap.plugin.WLTrusteerPlugin" />
     </feature>
     <feature name="EmailComposer" >
         <param
@@ -275,5 +178,4 @@ WorkCover
      <feature name="FileOpener2">
                 <param name="android-package" value="io.github.pwlin.cordova.plugins.fileopener2.FileOpener2" />
     </feature>
-
 </widget>

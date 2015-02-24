@@ -15,11 +15,11 @@ function getNoticeList() {
 	});
 }
 
-var rccmpres;
+var noticeListResult;
 function rccmbRetrieveSuccess(result) {
 
 	var res = result.invocationResult;
-	rccmpres = res;
+	noticeListResult = res;
 	$("#rccmpSubHead").html(
 			"Notice Issued By " + user_role + " " + user_full_name);
 
@@ -27,14 +27,14 @@ function rccmbRetrieveSuccess(result) {
 	var j = 0;
 	for (var i = 0; i < res.resultSet.length; i++) {
 		if (user_full_name == res.resultSet[i].officer_name) {
-			noticeList += "<li id=\"rccmpLi\"><div style=\"float:left; margin-left:4px;\">"
+			noticeList += "<li id=\"rccmpLi\"><div style=\"float:left; margin-left:4px;\" >"
 					+ "<label id=\"rccmpSlNo\">"
 					+ (++j)
 					+ ".</label>"
 					+ "<label id=\"rccmpName\">"
 					+ res.resultSet[i].notice_number
 					+ "<i style=\"font-size: 12px;\">&nbsp;&nbsp;&nbsp;&nbsp;issued to "
-					+ res.resultSet[i].registered_name
+					+ getissuedToName(i)
 					+ "</i></label></div>"
 					+ "<div id=\"rccmpButtons\">"
 					+ "<button class=\"ui-btn ui-btn-inline rccmpViewBut\" id=\""
@@ -54,6 +54,14 @@ function rccmbRetrieveSuccess(result) {
 	$.mobile.changePage($("#noticeListPage"));
 }
 
+function getissuedToName(index){
+	if(noticeListResult.resultSet[index].registered_name!=""){
+		return noticeListResult.resultSet[index].registered_name;
+	}else{
+		return noticeListResult.resultSet[index].business_name;
+	}
+}
+
 function rccmbRetrieveFail(errMsg) {
 	busyIndicator.hide();
 	alert("Unable to fetch data");
@@ -68,9 +76,9 @@ function rccmbViewNotice(noticeId) {
 }
 
 function rccmbPrintNotice(noticeId) {
-	for (var i = 0; i < rccmpres.resultSet.length; i++) {
-		if (noticeId == rccmpres.resultSet[i].notice_id) {
-			noticeNumber = rccmpres.resultSet[i].notice_number;
+	for (var i = 0; i < noticeListResult.resultSet.length; i++) {
+		if (noticeId == noticeListResult.resultSet[i].notice_id) {
+			noticeNumber = noticeListResult.resultSet[i].notice_number;
 			window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, function(
 					fileSystem) {
 
@@ -97,68 +105,81 @@ function rccmbPrintNotice(noticeId) {
 }
 
 function rccmbMailNotice(noticeId) {
-	for (var i = 0; i < rccmpres.resultSet.length; i++) {
-		if (noticeId == rccmpres.resultSet[i].notice_id) {
-			noticeNumber = rccmpres.resultSet[i].notice_number;
-			window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, function(
-					fileSystem) {
+	for (var i = 0; i < noticeListResult.resultSet.length; i++) {
+		if (noticeId == noticeListResult.resultSet[i].notice_id) {
+			noticeNumber = noticeListResult.resultSet[i].notice_number;
+			window
+					.requestFileSystem(
+							LocalFileSystem.PERSISTENT,
+							0,
+							function(fileSystem) {
 
-				console.log(fileSystem.name);
-				console.log(fileSystem.root.name);
-				console.log(fileSystem.root.fullPath);
+								console.log(fileSystem.name);
+								console.log(fileSystem.root.name);
+								console.log(fileSystem.root.fullPath);
 
-				fileSystem.root.getFile(noticeNumber + ".pdf", {
-					create : false
-				}, function(entry) {
-					fileUrl = entry.toURL();
+								fileSystem.root
+										.getFile(
+												noticeNumber + ".pdf",
+												{
+													create : false
+												},
+												function(entry) {
+													fileUrl = entry.toURL();
 
-					cordova.exec(null, null, "EmailComposer",
-							"showEmailComposer", [ {
-								subject : "Workcover NSW notice PDf file",
-								body : "Notice with PDF file",
-								toRecipients : [ "contact@workcover.nsw.gov.in" ],
-								ccRecipients : [],
-								bccRecipients : [],
-								bIsHTML : false,
-								attachments : [ "/storage/emulated/0/"
-										+ noticeNumber + ".pdf" ]
-							} ]);
-				}, function(error) {
-					alert("Unable to process. Please generate PDF");
-				});
-			});
+													cordova
+															.exec(
+																	null,
+																	null,
+																	"EmailComposer",
+																	"showEmailComposer",
+																	[ {
+																		subject : "Workcover NSW notice PDf file",
+																		body : "Notice with PDF file",
+																		toRecipients : [ "contact@workcover.nsw.gov.in" ],
+																		ccRecipients : [],
+																		bccRecipients : [],
+																		bIsHTML : false,
+																		attachments : [ "/storage/emulated/0/"
+																				+ noticeNumber
+																				+ ".pdf" ]
+																	} ]);
+												},
+												function(error) {
+													alert("Unable to process. Please generate PDF");
+												});
+							});
 
 		}
 	}
-
 }
 
-$("#rccmpAdd").on('tap click', function() {
+$("#rccmpAdd").on('click', function() {
 	sigCapture = new SignatureCapture("rccSignatureCanvas");
 	var date = new Date();
 	lDate = date.toString().slice(0, 25);
 	$("#rccDateField").html("Date : " + convertDate(lDate));
-	$("#stateSelect").show();
-	$("#stateText").hide();
-	$("#rccPostCodeField").prop("disabled", false);
-	$("#rccRegisteredNameField").prop("disabled", false);
-	$("#rccBusinessNameField").prop("disabled", false);
-	$("#rccBuildingNameField").prop("disabled", false);
-	$("#rccNumberField").prop("disabled", false);
-	$("#rccStreetNameField").prop("disabled", false);
-	$("#rccSuburbField").prop("disabled", false);
-	$("#rccStateText").prop("disabled", false);
-	$("#rccRegisteredNameField").val('');
-	$("#rccBusinessNameField").val('');
-	$("#rccABNField").val('');
-	$("#rccBuildingNameField").val('');
-	$("#rccNumberField").val('');
-	$("#rccStreetNameField").val('');
-	$("#rccSuburbField").val('');
-	$("#rccStateField").val('');
-	$("#rccPostCodeField").val('');
+//	$("#stateSelect").show();
+//	$("#stateText").hide();
+//	$("#rccPostCodeField").prop("disabled", false);
+//	$("#rccRegisteredNameField").prop("disabled", false);
+//	$("#rccBusinessNameField").prop("disabled", false);
+//	$("#rccBuildingNameField").prop("disabled", false);
+//	$("#rccNumberField").prop("disabled", false);
+//	$("#rccStreetNameField").prop("disabled", false);
+//	$("#rccSuburbField").prop("disabled", false);
+//	$("#rccStateText").prop("disabled", false);
+//	$("#rccRegisteredNameField").val('');
+//	$("#rccBusinessNameField").val('');
+//	$("#rccABNField").val('');
+//	$("#rccBuildingNameField").val('');
+//	$("#rccNumberField").val('');
+//	$("#rccStreetNameField").val('');
+//	$("#rccSuburbField").val('');
+//	$("#rccStateField").val('');
+//	$("#rccPostCodeField").val('');
 	$("#rccOfficerNameField").val(user_full_name);
-	$("#rccOfficerAddressField").val(user_address1+", "+user_address2);
+	$("#rccOfficerAddressField").val(user_address1 + ", " + user_address2);
 	$('#rccNoticeNumberField').val(getNoticeNumber());
 	$.mobile.changePage($("#currencyCertificateRequestPage"));
 });

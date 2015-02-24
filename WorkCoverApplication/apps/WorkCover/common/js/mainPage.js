@@ -7,7 +7,6 @@ $("#cMgmt").click(function() {
 });
 
 $("#reports").click(function() {
-	// getList();
 	$.mobile.changePage($("#reportsPage"));
 });
 
@@ -39,7 +38,5 @@ $("#settings")
 				});
 
 $("#cSurvey").click(function() {
-	busyIndicator.show();
-	$.mobile.changePage($("#responseVerificationPage"));
-	busyIndicator.hide();
+	getList();
 });

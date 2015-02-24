@@ -28,6 +28,7 @@
 /images/logo/todolist.png
 /images/mywsms/add.png
 /images/mywsms/record.png
+/images/mywsms/responsecheck.ico
 /images/mywsms/todo.png
 /images/others/add.png
 /images/others/admin.png
@@ -64,8 +65,8 @@
 /jqueryMobile/jquery.mobile-1.4.5.js
 /js/authentication.js
 /js/cMgmt.js
-/js/currencyCertificateRequestPage.js
 /js/initOptions.js
+/js/issueNoticeFormPage.js
 /js/jquery.mobile.datepicker.js
 /js/jspdf.js
 /js/jspdf.min.js
@@ -80,6 +81,7 @@
 /js/responseVerificationPage.js
 /js/settings.js
 /js/signatureCapture.js
+/js/verificationCheckFormPage.js
 /js/verificationListPage.js
 /worklight/cordova.js
 /worklight/cordova_plugins.js

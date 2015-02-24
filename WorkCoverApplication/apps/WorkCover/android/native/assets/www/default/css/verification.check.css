@@ -1,15 +1,5 @@
 
 /* Stylesheet content from css/verification.check.css in folder common */
-#header,#homeHeader,#arvclHeader,#rccHeader,#listHeader,#previewHeader,#noticeListHeader,#cMgmtHeader,#myWsmsHeader,#reportsHeader,#settingsHeader {
-	background-color: #DFA800;
-	border: 0px;
-	color: white;
-	height:85px;
-	text-shadow:none;
-	line-height:60px;
-	font-size: 25px;
-}
-
 #main {
 	padding: 2%;
 	margin: 2%;

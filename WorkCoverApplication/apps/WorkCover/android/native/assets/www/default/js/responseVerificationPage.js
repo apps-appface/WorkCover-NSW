@@ -1,9 +1,5 @@
 
 /* JavaScript content from js/responseVerificationPage.js in folder common */
-/**
- * 
- */
-
 var pcbuWorkplace;
 var pcbuSize;
 var pcbuARALetter;
@@ -74,10 +70,14 @@ $("#rvpSubmit").click(function(){
 
 function arvcSubmitSuccess(result){
 	busyIndicator.hide();
-	alert("Successfully Saved");
+	alert("Successfully saved");
 }
 
 function arvcSubmitFailed(error){
 	busyIndicator.hide();
-	alert("some error occurd 3\n" +JSON.stringify(error));
+	alert("Unable to save");
 }
+
+$("#rvpBack").click(function() {
+	$.mobile.changePage($("#myWsmsPage"));
+});

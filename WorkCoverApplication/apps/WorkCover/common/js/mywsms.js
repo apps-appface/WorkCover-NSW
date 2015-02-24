@@ -13,3 +13,7 @@ $("#mywsmsAdd").click(function() {
 $("#mywsmstToDo").click(function() {
 	alert("Coming soon in pilot");
 });
+
+$("#mywsmstResponseCheck").click(function() {
+	$.mobile.changePage($("#responseVerificationPage"));
+});

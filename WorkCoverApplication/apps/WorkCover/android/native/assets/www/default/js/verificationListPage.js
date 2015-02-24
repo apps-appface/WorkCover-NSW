@@ -8,13 +8,13 @@ function getList() {
 		parameters : []
 	};
 	WL.Client.invokeProcedure(invocationData, {
-		onSuccess : getTitle,
-		onFailure : failure,
+		onSuccess : getTitleSuccess,
+		onFailure : getTitleFailure,
 	});
 }
 
 var res;
-function getTitle(result) {
+function getTitleSuccess(result) {
 	var main_user = user_role, user2 = "Inspector";
 	$('#showlist').html('');
 	res = result.invocationResult;
@@ -40,10 +40,7 @@ function getTitle(result) {
 										+ '\" class=\"ui-btn ui-btn-inline edit\" onclick=\"false\">Edit</button>'
 										+ '<button  id=\"'
 										+ res.resultSet[i].worker_id
-										+ '\" class=\"ui-btn ui-btn-inline delete\" onclick=\"false\">Delete</button>'
-										+ '<button  id=\"'
-										+ res.resultSet[i].worker_id
-										+ '\" class=\"ui-btn ui-btn-inline pdf\" onclick=\"false\">PDF</button></div>'
+										+ '\" class=\"ui-btn ui-btn-inline delete\" onclick=\"false\">Delete</button></div>'
 										+ '</li>');
 				j++;
 			} else {
@@ -64,10 +61,7 @@ function getTitle(result) {
 										+ '\" class=\"ui-btn ui-btn-inline edit\" onclick=\"workerEdit(this.id)\">Edit</button>'
 										+ '<button id=\"'
 										+ res.resultSet[i].worker_id
-										+ '\" class=\"ui-btn ui-btn-inline delete\" onclick=\"workerDelete(this.id)\">Delete</button>'
-										+ '<button id=\"'
-										+ res.resultSet[i].worker_id
-										+ '\" class=\"ui-btn ui-btn-inline pdf\" onclick=\"workerPDF(this.id)\">PDF</button></div>'
+										+ '\" class=\"ui-btn ui-btn-inline delete\" onclick=\"workerDelete(this.id)\">Delete</button></div>'
 										+ '</li>');
 				j++;
 			}
@@ -96,10 +90,7 @@ function getTitle(result) {
 									+ '\" class=\"edit\" onclick=\"workerEdit(this.id)\" >Edit</button>'
 									+ '<button id=\"'
 									+ res.resultSet[i].worker_id
-									+ '\" class=\"delete\" onclick=\"workerDelete(this.id)\" >Delete</button>'
-									+ '<button id=\"'
-									+ res.resultSet[i].worker_id
-									+ '\" class=\"pdf\" onclick=\"workerPDF(this.id)\">PDF</button></div>'
+									+ '\" class=\"delete\" onclick=\"workerDelete(this.id)\" >Delete</button></div>'
 									+ '</li>');
 			j++;
 		}
@@ -175,15 +166,14 @@ function deleteSuccess() {
 function deleteFailure() {
 	busyIndicator.hide();
 	alert("Unable to delete");
-	getList();
 }
 
-function failure(result) {
+function getTitleFailure(result) {
 	busyIndicator.hide();
 	alert("Unable to load data");
 	$.mobile.changePage($("#loginPage"));
 }
 
-function workerPDF(id) {
-	alert("Currently unavailable");
-}
+$("#listBack").click(function() {
+	$.mobile.changePage($("#loginPage"));
+});

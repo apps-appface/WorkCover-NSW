@@ -17,17 +17,17 @@ function submitAdministrativeResponseVerificationChecklist(pcbuWorkplace,
 
 var procedure3Statement = WL.Server
 
-		.createSQLStatement("insert into CURRENCY_CERTIFICATE_REQUEST (notice_number, registered_name, business_name, abn, building_name, number, street_name, suburb, state, post_code, officer_name, officer_address, date,officer_signature,current_user_role) values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?);");
+		.createSQLStatement("insert into CURRENCY_CERTIFICATE_REQUEST (notice_number, registered_name, business_name, abn, building_name, number, street_name, suburb, state, post_code, officer_name, officer_address, date,officer_signature,current_user_role,status) values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?);");
 function submitCurrencyCertificateRequest(rccNoticeNumber, rccRegisteredName,
 		rccBusinessName, rccABN, rccBuildingName, rccNumber, rccStreetName,
 		rccSuburb, rccState, rccPostCode, rccOfficerName, rccOfficerAddress,
-		rccDate, signature, currentUserRole) {
+		rccDate, signature, currentUserRole,status) {
 	return WL.Server.invokeSQLStatement({
 		preparedStatement : procedure3Statement,
 		parameters : [ rccNoticeNumber, rccRegisteredName, rccBusinessName,
 				rccABN, rccBuildingName, rccNumber, rccStreetName, rccSuburb,
 				rccState, rccPostCode, rccOfficerName, rccOfficerAddress,
-				rccDate, signature, currentUserRole ]
+				rccDate, signature, currentUserRole,status ]
 	});
 }
 
