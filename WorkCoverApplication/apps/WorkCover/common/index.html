@@ -678,40 +678,39 @@
 
 			<button class="ui-btn-right"
 				style="margin-right: 15%; float: right; height: 74px; font-size: 20px; color: #FFFFFF; background-color: green; text-shadow: none; border: none; border-radius: 15px;"
-				id="okBtn">Save as PDF</button>
+				id="savePdfBtn">Save as PDF</button>
 		</div>
 
-		<div data-role="content" style="padding: 2%;">
+		<div data-role="content" style="padding: 2%;" id="pdfContent">
 
 			<div id="img" align="center">
 				<img src="images/others/logo3.png"
 					style="height: 150px; width: 450px;" /><br> <br>
+				<br>
 			</div>
 
 			<div id="testrccNoticeNumber">
-				<span for="testrccNoticeNumberField">Notice number : </span> <span
-					id="testrccNoticeNumberField"> </span>
-
+				<b>Notice number : </b> <span id="testrccNoticeNumberField">
+				</span>
 			</div>
 
 			<div class="subHead">
 				<h4>Notice issued to</h4>
 			</div>
+			
+			<div id="testrccABN">
+				<span>ABN (for Australian business only) : </span> <span
+					id="testrccABNField"> </span>
+			</div>
 
 			<div id="testrccRegisteredName">
-				<span for="testrccRegisteredNameField">Registered name : </span> <span
+				<span>Registered name : </span> <span
 					id="testrccRegisteredNameField"> </span>
 			</div>
 
 			<div id="testrccBusinessName">
-				<span for="testrccBusinessNameField">Registered business
-					(trading) name : </span> <span id="testrccBusinessNameField"> </span>
-
-			</div>
-
-			<div id="testrccABN">
-				<span for="testrccABNField">ABN (for Australian business
-					only) : </span> <span id="testrccABNField"> </span>
+				<span>Registered business (trading) name : </span> <span
+					id="testrccBusinessNameField"> </span>
 			</div>
 
 			<div class="subHead">
@@ -719,43 +718,38 @@
 			</div>
 
 			<div id="testrccBuildingName">
-				<span for="testrccBuildingNameField">Building name : </span> <span
-					id="testrccBuildingNameField"> </span>
+				<span>Building name : </span> <span id="testrccBuildingNameField">
+				</span>
 			</div>
 
 			<div id="testrccNumber">
-				<span for="testrccNumberField">Building Number : </span> <span
-					id="testrccNumberField"> </span>
+				<span>Building Number : </span> <span id="testrccNumberField">
+				</span>
 			</div>
 
 			<div id="testrccStreetName">
-				<span for="testrccStreetNameField">Street Name : </span> <span
-					id="testrccStreetNameField"> </span>
+				<span>Street Name : </span> <span id="testrccStreetNameField">
+				</span>
 			</div>
 
 			<div id="testrccSuburb">
-				<span for="testrccSuburbField">Suburb : </span> <span
-					id="testrccSuburbField"> </span>
+				<span>Suburb : </span> <span id="testrccSuburbField"> </span>
 			</div>
-			
+
 			<div class="subHead">
 				<h4>Other Information</h4>
 			</div>
-			
-			<div id="testrccStatus">
-				<span for="testrccStatusField">Status : </span> <span
-					id="testrccStatusField"> </span>
-			</div>
 
 			<div id="testrccState">
-				<span for="testrccStateField">State : </span> <span
-					id="testrccStateField"> </span>
+				<span>State : </span> <span id="testrccStateField"> </span>
 			</div>
 
-
 			<div id="testrccPostCode">
-				<span for="testrccPostCodeField">PostCode : </span> <span
-					id="testrccPostCodeField"> </span>
+				<span>PostCode : </span> <span id="testrccPostCodeField"> </span>
+			</div>
+
+			<div id="testrccStatus">
+				<span>Status : </span> <span id="testrccStatusField"> </span>
 			</div>
 
 			<div id="testSubhead" class="subHead">
@@ -767,8 +761,7 @@
 				<span>I, </span>
 			</div>
 			<div id="officernameid">
-				<span id="testrccOfficerNameField" for="testrccOfficerNameField">
-				</span>
+				<span id="testrccOfficerNameField"> </span>
 			</div>
 			<div id="noticetext">
 				<span>, being an officer of the WorkCover Authority
@@ -789,16 +782,15 @@
 				<span data-inline="true" id="testrccOfficerAddressField"></span>
 			</div>
 
-			<div id="rccSignatureContainer" align="left" style="margin: 2%;">
-				<div id="rccSignatureCanvasContainer"
-					style="width: 300px; height: 150px;">
-					<img src="" id="testrccOfficerSignature"
-						style="height: 150px; width: 300px;">
-				</div>
-				<span>Signature</span> <span>(Authorised officer of the
-					WorkCover Authority)</span>
+			<div style="text-align: center;">
+				<img src="" id="testrccOfficerSignature"
+					style="display: block; margin-left: auto; margin-right: auto; height: 150px; width: 300px;">
+				<label style="display: block">Signature: </label><label
+					style="display: block">(Authorized officer of the WorkCover
+					Authority)</label>
 
 			</div>
+
 			<div id="dateHolder" align="left">
 				<span id="testrccDateField"> </span>
 			</div>
@@ -825,8 +817,7 @@
 
 			<label id="rccmpSubHead" data-position="fixed"
 				style="font-size: 25px; background: #3e3e3e; color: white; margin-top: 3%; margin-bottom: 2%; text-shadow: none; border: 0px; padding: 2%; width: 70%;"></label>
-			<div id="rccmpContainer" class="example-wrapper"
-				style="height: 30%;">
+			<div id="rccmpContainer" class="example-wrapper" style="max-height: 500px; overflow: auto;">
 
 				<ul id="rccmpList" data-inset="true"></ul>
 
@@ -1090,8 +1081,6 @@
 	<script src="js/issueNoticeFormPage.js"></script>
 	<script src="js/modernizr.custom.34982.js"></script>
 	<script src="js/signatureCapture.js"></script>
-	<script src="js/jspdf.js"></script>
-	<script src="js/jspdf.min.js"></script>
 	<script src="js/nswImage.js"></script>
 	<script src="js/previewNoticeCertificate.js"></script>
 	<script src="js/noticeListPage.js"></script>

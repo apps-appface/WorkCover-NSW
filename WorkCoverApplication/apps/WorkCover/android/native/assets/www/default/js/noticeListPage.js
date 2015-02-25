@@ -136,7 +136,7 @@ function rccmbMailNotice(noticeId) {
 																	[ {
 																		subject : "Workcover NSW notice PDf file",
 																		body : "Notice with PDF file",
-																		toRecipients : [ "contact@workcover.nsw.gov.in" ],
+																		toRecipients : [],
 																		ccRecipients : [],
 																		bccRecipients : [],
 																		bIsHTML : false,
@@ -159,25 +159,16 @@ $("#rccmpAdd").on('click', function() {
 	var date = new Date();
 	lDate = date.toString().slice(0, 25);
 	$("#rccDateField").html("Date : " + convertDate(lDate));
-//	$("#stateSelect").show();
-//	$("#stateText").hide();
-//	$("#rccPostCodeField").prop("disabled", false);
-//	$("#rccRegisteredNameField").prop("disabled", false);
-//	$("#rccBusinessNameField").prop("disabled", false);
-//	$("#rccBuildingNameField").prop("disabled", false);
-//	$("#rccNumberField").prop("disabled", false);
-//	$("#rccStreetNameField").prop("disabled", false);
-//	$("#rccSuburbField").prop("disabled", false);
-//	$("#rccStateText").prop("disabled", false);
-//	$("#rccRegisteredNameField").val('');
-//	$("#rccBusinessNameField").val('');
-//	$("#rccABNField").val('');
-//	$("#rccBuildingNameField").val('');
-//	$("#rccNumberField").val('');
-//	$("#rccStreetNameField").val('');
-//	$("#rccSuburbField").val('');
-//	$("#rccStateField").val('');
-//	$("#rccPostCodeField").val('');
+	$("#rccRegisteredNameField").val('');
+	$("#rccBusinessNameField").val('');
+	$("#rccABNField").val('');
+	$("#rccBuildingNameField").val('');
+	$("#rccNumberField").val('');
+	$("#rccStreetNameField").val('');
+	$("#rccSuburbField").val('');
+	$("#rccStateText").val('');
+	$("#rccStatusText").val('');
+	$("#rccPostCodeField").val('');
 	$("#rccOfficerNameField").val(user_full_name);
 	$("#rccOfficerAddressField").val(user_address1 + ", " + user_address2);
 	$('#rccNoticeNumberField').val(getNoticeNumber());

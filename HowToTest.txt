@@ -14,7 +14,7 @@ How to test
 
 4.In Notice Management section -> Add New -> popup will appear on click ABN number field, there use
 
-	ABN number as	53004085616 (or)  13000636019   for testing.
+	ABN number as	53004085616 / 13000636019 / 81006800862   for testing.
 
 
 Note:

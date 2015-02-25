@@ -178,4 +178,9 @@
      <feature name="FileOpener2">
                 <param name="android-package" value="io.github.pwlin.cordova.plugins.fileopener2.FileOpener2" />
     </feature>
+    <feature name="Html2pdf" >
+        <param
+            name="android-package"
+            value="at.modalog.cordova.plugin.html2pdf.Html2pdf" />
+    </feature>
 </widget>
