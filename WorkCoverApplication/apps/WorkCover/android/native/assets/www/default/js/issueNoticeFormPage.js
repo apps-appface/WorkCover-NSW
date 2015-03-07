@@ -10,6 +10,21 @@ $("#rccSignatureClear").click(function() {
 	sigCapture.clear();
 });
 
+$("#rccSignatureImage").click(
+		function() {
+			cordova.exec(signatureSuccessCallback, signatureErrorCallback,
+					'SCanvas', 'showCanvas', []);
+		});
+
+function signatureSuccessCallback(result) {
+
+	$("#rccSignatureImage").attr('src', 'data:image/png;base64,' + result);
+}
+function signatureErrorCallback(error) {
+	alert(error);
+	$('#rccSignatureImage').attr("src", 'images/signatureBackground.png');
+}
+
 $("#submitNewNotice").click(
 		function() {
 
@@ -20,7 +35,7 @@ $("#submitNewNotice").click(
 			var rccBusinessName = $("#rccBusinessNameField").val();
 			// var rccABN = $('#rccABNField').find("option:selected").val();
 			var rccABN = $('#rccABNField').val();
-			var sig = sigCapture.toString();
+			var sig = $('#rccSignatureImage').attr('src');
 			var rccBuildingName = $("#rccBuildingNameField").val();
 			var rccNumber = $("#rccNumberField").val();
 			var rccStreetName = $("#rccStreetNameField").val();
@@ -102,7 +117,7 @@ function getABNDetailSuccess(result) {
 			.val(
 					res.Envelope.Body.ABRSearchByABNResponse.ABRPayloadSearchResults.response.businessEntity.ABN.identifierValue);
 
-	if (res.Envelope.Body.ABRSearchByABNResponse.ABRPayloadSearchResults.response.businessEntity.mainName!=null) {
+	if (res.Envelope.Body.ABRSearchByABNResponse.ABRPayloadSearchResults.response.businessEntity.mainName != null) {
 
 		$('#rccBusinessNameField')
 				.val(

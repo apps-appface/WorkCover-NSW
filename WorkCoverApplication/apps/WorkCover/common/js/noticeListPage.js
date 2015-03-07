@@ -52,10 +52,10 @@ function rccmbRetrieveSuccess(result) {
 	$.mobile.changePage($("#noticeListPage"));
 }
 
-function getissuedToName(index){
-	if(noticeListResult.resultSet[index].registered_name!=""){
+function getissuedToName(index) {
+	if (noticeListResult.resultSet[index].registered_name != "") {
 		return noticeListResult.resultSet[index].registered_name;
-	}else{
+	} else {
 		return noticeListResult.resultSet[index].business_name;
 	}
 }
@@ -106,54 +106,40 @@ function rccmbMailNotice(noticeId) {
 	for (var i = 0; i < noticeListResult.resultSet.length; i++) {
 		if (noticeId == noticeListResult.resultSet[i].notice_id) {
 			noticeNumber = noticeListResult.resultSet[i].notice_number;
-			window
-					.requestFileSystem(
-							LocalFileSystem.PERSISTENT,
-							0,
-							function(fileSystem) {
+			window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, function(
+					fileSystem) {
 
-								console.log(fileSystem.name);
-								console.log(fileSystem.root.name);
-								console.log(fileSystem.root.fullPath);
+				console.log(fileSystem.name);
+				console.log(fileSystem.root.name);
+				console.log(fileSystem.root.fullPath);
 
-								fileSystem.root
-										.getFile(
-												noticeNumber + ".pdf",
-												{
-													create : false
-												},
-												function(entry) {
-													fileUrl = entry.toURL();
+				fileSystem.root.getFile(noticeNumber + ".pdf", {
+					create : false
+				}, function(entry) {
+					fileUrl = entry.toURL();
 
-													cordova
-															.exec(
-																	null,
-																	null,
-																	"EmailComposer",
-																	"showEmailComposer",
-																	[ {
-																		subject : "Workcover NSW notice PDf file",
-																		body : "Notice with PDF file",
-																		toRecipients : [],
-																		ccRecipients : [],
-																		bccRecipients : [],
-																		bIsHTML : false,
-																		attachments : [ "/storage/emulated/0/"
-																				+ noticeNumber
-																				+ ".pdf" ]
-																	} ]);
-												},
-												function(error) {
-													alert("Unable to process. Please generate PDF");
-												});
-							});
+					cordova.exec(null, null, "EmailComposer",
+							"showEmailComposer", [ {
+								subject : "Workcover NSW notice PDf file",
+								body : "Notice with PDF file",
+								toRecipients : [],
+								ccRecipients : [],
+								bccRecipients : [],
+								bIsHTML : false,
+								attachments : [ "/storage/emulated/0/"
+										+ noticeNumber + ".pdf" ]
+							} ]);
+				}, function(error) {
+					alert("Unable to process. Please generate PDF");
+				});
+			});
 
 		}
 	}
 }
 
 $("#rccmpAdd").on('click', function() {
-	sigCapture = new SignatureCapture("rccSignatureCanvas");
+	// sigCapture = new SignatureCapture("rccSignatureCanvas");
 	var date = new Date();
 	lDate = date.toString().slice(0, 25);
 	$("#rccDateField").html("Date : " + convertDate(lDate));
@@ -170,6 +156,7 @@ $("#rccmpAdd").on('click', function() {
 	$("#rccOfficerNameField").val(user_full_name);
 	$("#rccOfficerAddressField").val(user_address1 + ", " + user_address2);
 	$('#rccNoticeNumberField').val(getNoticeNumber());
+	$('#rccSignatureImage').attr("src", 'images/signatureBackground.png');
 	$.mobile.changePage($("#currencyCertificateRequestPage"));
 });
 

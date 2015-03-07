@@ -13,7 +13,7 @@ function getABNByName(searchName, postCode) {
 			+ '</name>'
 			+ '<filters>'
 			+ '<nameType>'
-			+ '<tradingName>Y</tradingName>'
+			+ '<tradingName>N</tradingName>'
 			+ '<legalName>Y</legalName>'
 			+ '</nameType>'
 			+ '<postcode>'

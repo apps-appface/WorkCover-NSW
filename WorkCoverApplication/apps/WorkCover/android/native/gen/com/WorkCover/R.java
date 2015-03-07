@@ -19,12 +19,20 @@ public final class R {
         public static final int settings=0x7f020005;
         public static final int splash=0x7f020006;
     }
+    public static final class id {
+        public static final int clear=0x7f060000;
+        public static final int spenViewLayout=0x7f060002;
+        public static final int submit=0x7f060001;
+    }
+    public static final class layout {
+        public static final int activity_main=0x7f030000;
+    }
     public static final class string {
-        public static final int OKTitleWLServerUrl=0x7f040009;
-        public static final int app_name=0x7f040000;
-        public static final int cancel=0x7f040004;
-        public static final int changeServerAddress=0x7f04000d;
-        public static final int close=0x7f040003;
+        public static final int OKTitleWLServerUrl=0x7f050009;
+        public static final int app_name=0x7f050000;
+        public static final int cancel=0x7f050004;
+        public static final int changeServerAddress=0x7f05000d;
+        public static final int close=0x7f050003;
         /**  Direct Update 
  Direct Update 
  Direct Update 
@@ -39,8 +47,8 @@ public final class R {
  Direct Update 
  Direct Update 
          */
-        public static final int directUpdateDownloadingMessage=0x7f040012;
-        public static final int downloadingWebResourcesMessage=0x7f040011;
+        public static final int directUpdateDownloadingMessage=0x7f050012;
+        public static final int downloadingWebResourcesMessage=0x7f050011;
         /**  General purpose strings 
  General purpose strings 
  General purpose strings 
@@ -55,17 +63,17 @@ public final class R {
  General purpose strings 
  General purpose strings 
          */
-        public static final int error=0x7f040002;
-        public static final int errorInvalidWLServerUrl=0x7f04000b;
-        public static final int kb=0x7f040013;
-        public static final int networkSettingsTitleWLServerUrl=0x7f040008;
-        public static final int push_notification_title=0x7f040001;
-        public static final int serverAddress=0x7f04000c;
-        public static final int summaryWLServerUrl=0x7f040006;
-        public static final int titleInvalidWLServerUrl=0x7f04000a;
-        public static final int titleWLServerUrl=0x7f040007;
-        public static final int wlAppIdTitle=0x7f04000f;
-        public static final int wlAppVersionTitle=0x7f040010;
+        public static final int error=0x7f050002;
+        public static final int errorInvalidWLServerUrl=0x7f05000b;
+        public static final int kb=0x7f050013;
+        public static final int networkSettingsTitleWLServerUrl=0x7f050008;
+        public static final int push_notification_title=0x7f050001;
+        public static final int serverAddress=0x7f05000c;
+        public static final int summaryWLServerUrl=0x7f050006;
+        public static final int titleInvalidWLServerUrl=0x7f05000a;
+        public static final int titleWLServerUrl=0x7f050007;
+        public static final int wlAppIdTitle=0x7f05000f;
+        public static final int wlAppVersionTitle=0x7f050010;
         /**   Settings Screen: Web Resources category 
   Settings Screen: Web Resources category 
   Settings Screen: Web Resources category 
@@ -80,7 +88,7 @@ public final class R {
   Settings Screen: Web Resources category 
   Settings Screen: Web Resources category 
          */
-        public static final int wlWebResourcesCategory=0x7f04000e;
+        public static final int wlWebResourcesCategory=0x7f05000e;
         /**  IBM MobileFirst Platform initialization errors 
  IBM MobileFirst Platform initialization errors 
  IBM MobileFirst Platform initialization errors 
@@ -95,8 +103,8 @@ public final class R {
  IBM MobileFirst Platform initialization errors 
  IBM MobileFirst Platform initialization errors 
          */
-        public static final int worklightInitInternalError=0x7f040014;
-        public static final int worklightInitNotEnoughSpace=0x7f040015;
+        public static final int worklightInitInternalError=0x7f050014;
+        public static final int worklightInitNotEnoughSpace=0x7f050015;
         /**   Settings Screen strings 
   Settings Screen strings 
   Settings Screen strings 
@@ -111,9 +119,9 @@ public final class R {
   Settings Screen strings 
   Settings Screen strings 
          */
-        public static final int worklightSettingsTitle=0x7f040005;
+        public static final int worklightSettingsTitle=0x7f050005;
     }
     public static final class xml {
-        public static final int config=0x7f030000;
+        public static final int config=0x7f040000;
     }
 }

@@ -12,7 +12,6 @@ import org.json.JSONException;
 
 import android.annotation.TargetApi;
 import android.app.Activity;
-import android.content.ActivityNotFoundException;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
@@ -21,7 +20,6 @@ import android.graphics.Canvas;
 import android.media.MediaScannerConnection;
 import android.media.MediaScannerConnection.OnScanCompletedListener;
 import android.net.Uri;
-import android.os.Build;
 import android.os.Environment;
 import android.os.Handler;
 import android.print.PrintAttributes;
@@ -293,16 +291,16 @@ public class Html2pdf extends CordovaPlugin {
 							// intent)
 							PluginResult result;
 							boolean success = false;
-//							if (self.canHandleIntent(
-//									self.cordova.getActivity(), pdfViewIntent)) {
-//								try {
-//									self.cordova.startActivityForResult(self,
-//											pdfViewIntent, 0);
-//									success = true;
-//								} catch (ActivityNotFoundException e) {
-//									success = false;
-//								}
-//							}
+							// if (self.canHandleIntent(
+							// self.cordova.getActivity(), pdfViewIntent)) {
+							// try {
+							// self.cordova.startActivityForResult(self,
+							// pdfViewIntent, 0);
+							// success = true;
+							// } catch (ActivityNotFoundException e) {
+							// success = false;
+							// }
+							// }
 							if (true) {
 								// send success result to cordova
 								result = new PluginResult(

@@ -1,0 +1,44 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center" >
+
+        <Button
+            android:id="@+id/clear"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="#D6E6F5"
+            android:onClick="clearAll"
+            android:text="Clear"
+            android:textColor="#FE2E2E" />
+
+        <Button
+            android:id="@+id/submit"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="#D6E6F5"
+            android:onClick="submitImage"
+            android:text="Submit"
+            android:textColor="#FE2E2E" />
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:background="#000000" />
+
+    <RelativeLayout
+        android:id="@+id/spenViewLayout"
+        android:layout_width="match_parent"
+        android:layout_height="300dp" >
+    </RelativeLayout>
+
+</LinearLayout>
